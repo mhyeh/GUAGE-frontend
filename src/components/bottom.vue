@@ -1,7 +1,7 @@
 <template>
   <v-footer height="300px">
       <v-layout row wrap="" justify-center="">
-          <v-flex xs1 v-bind:key=item v-for="item in toolbar" >
+          <v-flex  v-bind:key=item v-for="item in toolbar" >
           <v-card ripple=""  align="center">{{ item }}</v-card>
         </v-flex>
           <v-flex xs12 text-xs-center><br>地址:台北市北投區     電話:傳真:<br>有限公司版權所有</v-flex>

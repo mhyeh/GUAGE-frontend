@@ -3,7 +3,7 @@
       <v-layout align-content-center="" column="">
          <v-layout  row="">
             <v-flex xs4>
-              <v-card height="60px">Logo</v-card>
+              <v-card-media height="60px" @click="changeroute">logo</v-card-media>
             </v-flex>
             <v-flex xs8 offset-xs6>
                 <p>繁體中文/簡體中文/English/Site Map/關係網頁連結</p>
@@ -11,15 +11,15 @@
          </v-layout>
         
         <v-flex>
-          <v-card height="200px">picture</v-card>
+          <v-card-media height="200px" @click="changeroute">picture</v-card-media>
         </v-flex>
         <v-layout row wrap="">
-            <v-flex  v-bind:key=item v-for="item in toolbar" >
-              <v-menu open-on-hover=""  transition="scale-transition" attach="bottom"  >
-                <v-card ripple="" align="center"  slot="activator" >{{ item.genre }}</v-card>
+            <v-flex xs1 v-bind:key=item v-for="item in toolbar" >
+              <v-menu open-on-hover=""  transition="scale-transition" attach=""  offset-y="" >
+                <v-card-actions @click="changeroute2" align="center" color="primary" ripple="" width="90px"  slot="activator" >{{ item.genre }}</v-card-actions>
                 <v-list>
                 <v-list-tile  v-bind:key=sub v-for="sub in item.sub_genre">
-                  <v-list-tile-title >{{sub}}</v-list-tile-title>
+                  <v-btn block ripple flat=""><v-list-tile-title @click="changeroute2">{{sub}}</v-list-tile-title></v-btn>
                 </v-list-tile>
               </v-list>
               </v-menu>
@@ -50,7 +50,14 @@ export default {
       ]
     }
   },
-
+  methods: {
+    changeroute () {
+      this.$router.push('/')
+    },
+    changeroute2(){
+      this.$router.push('/home')
+    }
+  }
 }
 </script>
 
