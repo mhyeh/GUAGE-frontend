@@ -3,12 +3,22 @@
     <top></top>
     <v-layout row="">
         <v-flex xs10>
-          <v-card height="30px" align="center">最新商品</v-card>
+          <br>
+          <center>
+            <p>最新商品</p>
+          </center>
           <v-card height="200px"></v-card>
-          <v-card height="30px" align="center">最新消息</v-card>
+          <br>
+          <center>
+            <p>最新消息</p>
+          </center>
           <v-card height="200px"></v-card>
-          <v-card height="30px" align="center">關於亞帝</v-card>
+          <br>
+          <center>
+            <p>關於亞帝</p>
+          </center>
           <v-card height="200px"></v-card>
+          <v-btn @click="changeroute">click</v-btn>
         </v-flex>
         <v-flex xs2>
           <right></right>
@@ -19,21 +29,11 @@
 </template>
 
 <script>
-export default{
+export default {
+  methods: {
+    changeroute () {
+      this.$router.push('/home')
+    }
+  }
 }
-/*data:{
-  items[
-  {message: '關於亞帝'},
-  {message: '產品目錄'},
-  {message: '衍生資訊'},
-  {message: '應用產業'},
-  {message: '最新消息'},
-  {message: '技術園地'},
-  {message: '產品應用現場'},
-  {message: '相關連結'},
-  {message: '人才自薦'},
-  {message: 'Q&A'},
-  {message: '聯絡我們'}
-  ]
-}*/
 </script>
