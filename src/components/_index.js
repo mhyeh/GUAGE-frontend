@@ -4,6 +4,7 @@ import Top from './top.vue'
 import Right from './right.vue'
 import Bottom from './bottom.vue'
 import Left from './left.vue'
+import Middle from './middle.vue'
 
 export default {
   Home: Home,
@@ -11,5 +12,6 @@ export default {
   Top: Top,
   Right: Right,
   Bottom: Bottom,
-  Left: Left
+  Left: Left,
+  Middle: Middle,
 }

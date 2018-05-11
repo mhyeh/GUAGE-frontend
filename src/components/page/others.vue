@@ -3,10 +3,10 @@
     <top></top>
     <v-layout row="">
         <v-flex xs2>
-            <left></left>
+            <left :path="path"></left>
         </v-flex>
         <v-flex xs8>
-            <v-card height="auto"></v-card>
+            <middle></middle>
         </v-flex>
         <v-flex xs2>
           <right></right>
@@ -18,7 +18,10 @@
 
 <script>
 export default {
-
+    props: ['path'],
+    mounted () {
+        console.log(this.path);
+    }
 }
 </script>
 

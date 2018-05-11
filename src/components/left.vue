@@ -1,8 +1,8 @@
 <template>
   <v-container>
       <v-layout column="">
-          <v-flex xs2 v-bind:key=item v-for="item in toolbar" >
-              <v-card ripple=""  align="center" v-for="sub in item.sub_genre" v-bind:key=sub>{{ sub }}</v-card>
+          <v-flex xs2>
+              <v-btn flat small block height="30px" ripple=""  align="center" v-bind:key=item v-for="item in toolbar(path)" @click="changeroute(item.url)">{{ item.genre }}</v-btn>
             </v-flex>
       </v-layout>
   </v-container>
@@ -10,22 +10,99 @@
 
 <script>
 export default {
+    props: ['path'],
     data(){
         return {
-            toolbar:[
-            {genre:"關於亞帝",sub_genre:["公司介紹","公司沿革","公司環境","工程實績","營利/營業證照","產品校正報告","認證報告","關係網頁連結"]},
-            {genre:"產品目錄",sub_genre:["型錄下載","特價品","新品"]},
-            {genre:"衍生資訊",sub_genre:["衍生產品","品牌衍生"]},
-            {genre:"應用產業",sub_genre:["營建工程業","製造業","水火電力燃氣業"]},
-            {genre:"最新消息",sub_genre:["最新公告","各期E-DM","特價品","新品"]},
-            {genre:"技術園地",sub_genre:["產品操作說明","產品維護手冊","FAQ","人員安全衛生作業注意要點","理論彙集","實作技術","單位換算器","數據/資料對照表","技術連結","研究中議題"]},
-            {genre:"產品應用現場",sub_genre:["管路/設備儀表照片","影片","文字檔案"]},
-            {genre:"相關連結",sub_genre:["關係網頁連結","友好網頁連結","國營事業連結","工業開發科技園區","政府機關連結","砂金源頭","貿易交通交流","工作/生活百科","休閒陶冶","生活資訊","企業經營管理連結","關聯公協會"]},
-            {genre:"人才自薦"},
-            {genre:"Q&A"},
-            {genre:"我要留言"},
-            {genre:"聯絡我們",sub_genre:["我要留言","聯絡資訊"]}
-            ]
+        }
+    },
+    methods: {
+        toolbar: function (path) {
+            if (path == 'about' || path=='introduction' || path=='history' || path=='envirnoment' || path=='records' || path=='license' || path=='report' || path=='product_report') {
+                return [
+                   {genre:"公司介紹",url:"introduction"},
+                   {genre:"公司沿革",url:"history"},
+                   {genre:"公司環境",url:"envirnoment"},
+                   {genre:"工程實績",url:"records"},
+                   {genre:"營利/營業證照",url:"license"},
+                   {genre:"產品校正報告",url:"product_report"},
+                   {genre:"認證報告",url:"report"},
+                   {genre:"關係網頁連結",url:"relation"}]
+            }
+            if(path=='catalog' || path=='download' || path=='on_sale' || path=='new')
+            {
+                return[
+                    {genre:"型錄下載",url:"download"},
+                    {genre:"特價品",url:"on_sale"},
+                    {genre:"新品",url:"new"}]
+            }
+            if(path=='derivative' || path=='product' || path=='brands')
+            {
+                return [
+                    {genre:"衍生產品",url:"product"},
+                    {genre:"品牌衍生",url:"brands"}]
+            }
+            if(path=='industry' || path=='construction' || path=='manufacture' || path=='electricity' )
+            {
+                return [
+                    {genre:"營建工程業",url:"construction"},
+                    {genre:"製造業",url:"manufacture"},
+                    {genre:"水火電力燃氣業",url:"electricity"}]
+            }
+            if(path=='news' || path== 'lastest' || path=='DM')
+            {
+                return [
+                    {genre:"最新公告",url:"lastest"},
+                    {genre:"各期E-DM",url:"DM"},
+                    {genre:"特價品",url:"on_sale"},
+                    {genre:"新品",url:"new"}]
+            }
+            if(path=='technology' || path == 'instruction'|| path=='maintain' || path=='FAQ' || path=='note' || path== 'theory' || path=='skill' || path=='conversion' || path=='data'  || path== 't_link' || path=='issue')
+            {
+                return [
+                    {genre:"產品操作說明",url:"instruction"},
+                    {genre:"產品維護手冊",url:"maintain"},
+                    {genre:"FAQ",url:"FAQ"},
+                    {genre:"人員安全衛生作業要點",url:"note"},
+                    {genre:"理論彙集",url:"theory"},
+                    {genre:"實作技術",url:"skill"},
+                    {genre:"單位換算器/表",url:"conversion"},
+                    {genre:"數據/資料對照表",url:"data"},
+                    {genre:"技術連結",url:"t_link"},
+                    {genre:"研究中議題",url:"issue"}]
+            }
+            if(path=='scene'||path=='equipment' || path=='film' || path=='picture')
+            {
+                return [
+                    {genre:"管路/設備儀表照片",url:"eqipment"},
+                    {genre:"影片",url:"film"},
+                    {genre:"文字圖案",url:"picture"}]
+            }
+            if(path=='link' || path=='relation' || path=='friend' || path=='national' || path=='develop' || path=='governoment' || path=='source'||path=='commerce'||path=='work'||path=='rest'||path=='life'||path=='enterprise' || path=='association')
+            {
+                return [
+                    {genre:"關係網頁連結",url:"relation"},
+                    {genre:"友好網頁連結",url:"friend"},
+                    {genre:"國營事業連結",url:"national"},
+                    {genre:"工業開發科技園區",url:"develop"},
+                    {genre:"政府機關連結",url:"governomemt"},
+                    {genre:"砂金源頭",url:"source"},
+                    {genre:"貿易交易交流",url:"commerce"},
+                    {genre:"工作/生活百科",url:"work"},
+                    {genre:"休閒陶冶",url:"rest"},
+                    {genre:"生活資訊",url:"life"},
+                    {genre:"企業經營管理連結",url:"enterprise"},
+                    {genre:"關聯公協會",url:"association"}]
+            }
+            if(path=='contact' || path=='message' || path=='information')
+            {
+                return [
+                    {genre:"我要留言",url:"message"},
+                    {genre:"聯絡資訊",url:"information"}
+                ]
+            }
+        },
+        changeroute (url) {
+            this.$router.push('/home/'+ url)
         }
     }
 }
