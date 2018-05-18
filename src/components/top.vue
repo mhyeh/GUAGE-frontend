@@ -1,5 +1,5 @@
 <template>
-  <v-container >
+  <v-container>
       <v-layout align-content-center="" column="">
          <v-layout  row="">
             <v-flex xs4>
@@ -15,12 +15,12 @@
         </v-flex>
         <v-layout row>
             <v-flex xs1 v-bind:key=item.genre v-for="item in toolbar" >
-              <v-menu open-on-hover=""  transition="scale-transition" attach=""  offset-y="" v-if="item.sub_genre !== undefined">
-                <v-btn small block @click="changeroute2(item.url)" align="center" slot="activator" flat><b>{{ item.genre }}</b></v-btn>
-                <v-list>
+              <v-menu open-on-hover transition="scale-transition" attach=""  offset-y="" v-if="item.sub_genre !== undefined">
+                <v-btn small flat block @click="changeroute2(item.url)" align="center" slot="activator"><b>{{ item.genre }}</b></v-btn>
+                <v-list >
                   <v-list-tile v-bind:key=sub.genre v-for="sub in item.sub_genre">
-                    <v-btn block ripple flat @click="changeroute2(sub.url)">
-                      <v-list-tile-title >{{sub.genre}}</v-list-tile-title>
+                    <v-btn  block  ripple flat @click="changeroute2(sub.url)">
+                      <v-list-tile-title>{{sub.genre}}</v-list-tile-title>
                     </v-btn>
                   </v-list-tile>
                 </v-list>
@@ -247,7 +247,7 @@ export default {
           ]
         },
         {
-          genre:"產品應用現場",
+          genre:"應用現場",
           url:"scene",
           sub_genre:[
             {

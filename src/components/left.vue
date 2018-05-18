@@ -70,10 +70,10 @@ export default {
                     {genre:"技術連結",url:"t_link"},
                     {genre:"研究中議題",url:"issue"}]
             }
-            if(path=='scene'||path=='equipment' || path=='film' || path=='picture')
+            if(path=='scene'|| path=='equipment' || path=='film' || path=='picture')
             {
                 return [
-                    {genre:"管路/設備儀表照片",url:"eqipment"},
+                    {genre:"管路/設備儀表照片",url:"equipment"},
                     {genre:"影片",url:"film"},
                     {genre:"文字圖案",url:"picture"}]
             }

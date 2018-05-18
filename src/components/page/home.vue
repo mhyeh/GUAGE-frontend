@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container fluid="">
     <top></top>
     <v-layout row="">
         <v-flex xs10>
