@@ -6,7 +6,7 @@
             <left :path="path"></left>
         </v-flex>
         <v-flex xs8>
-            <middle></middle>
+            <middle :path="path"></middle>
         </v-flex>
         <v-flex xs2>
           <right></right>
@@ -19,7 +19,7 @@
 <script>
 export default {
     props: ['path'],
-    mounted () {
+    beforeMounted () {
         console.log(this.path);
     }
 }

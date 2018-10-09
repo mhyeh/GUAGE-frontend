@@ -2,7 +2,7 @@
   <v-container>
       <v-layout column="">
           <v-flex xs2>
-              <v-btn flat small block height="30px" ripple=""  align="center" v-bind:key=item v-for="item in toolbar(path)" @click="changeroute(item.url)">{{ item.genre }}</v-btn>
+              <v-btn color="light-blue lighten-5" block height="30px" ripple=""  align="center" v-bind:key=item.genre v-for="item in toolbar(path)" @click="changeroute(item.url)"><b>{{ item.genre }}</b></v-btn>
             </v-flex>
       </v-layout>
   </v-container>
@@ -28,18 +28,35 @@ export default {
                    {genre:"認證報告",url:"report"},
                    {genre:"關係網頁連結",url:"relation"}]
             }
-            if(path=='catalog' || path=='download' || path=='on_sale' || path=='new')
+            if(path=='catalog' || path=='download'  || path=='new' || path=='pointer_pressure' || path=='pressure_switch' || path=='pressure_transmitter' || path=='transmitter' || path=='digit_pressure' ||  path=='pointer_thermometer' ||  path=='temperature_switch' || path=='digit_thermometer' || path=='TC_dipole' || path=='RTD_resistance' || path=='glass_thermometer' || path=='septum' || path=='vertify' || path=='accessory')
             {
                 return[
-                    {genre:"型錄下載",url:"download"},
-                    {genre:"特價品",url:"on_sale"},
-                    {genre:"新品",url:"new"}]
+                    {genre:"新品",url:"new"},
+                    {genre:"指針式壓力錶",url:"pointer_pressure"},
+                    {genre:"類比輸出壓力開關",url:"pressure_switch"},
+                    {genre:"壓力傳感(送)器",url:"pressure_transmitter"},
+                    {genre:"智能型變送器",url:"transmitter"},
+                    {genre:"數位式壓力錶",url:"digit_pressure"},
+                    {genre:"指針式溫度表",url:"pointer_thermometer"},
+                    {genre:"機械式溫度開關",url:"temperature_switch"},
+                    {genre:"數位溫度表",url:"digit_thermometer"},
+                    {genre:"TC熱電偶",url:"TC_dipole"},
+                    {genre:"RTD熱電阻",url:"RTD_resistance"},
+                    {genre:"玻璃管溫度計",url:"glass_thermometer"},
+                    {genre:"隔膜",url:"septum"},
+                    {genre:"校驗儀器",url:"vertify"},
+                    {genre:"配件",url: "accessory"},
+                    {genre:"型錄下載",url:"download"}]
             }
-            if(path=='derivative' || path=='product' || path=='brands')
+            if(path=='FRL'||path=='valve'||path=='liquid'||path=='flow'||path=='adjuster'||path=='transmitter')
             {
                 return [
-                    {genre:"衍生產品",url:"product"},
-                    {genre:"品牌衍生",url:"brands"}]
+                    {genre:"F.R.L 1~3點組合",url:"FRL"},
+                    {genre:"閥類",url:"valve"},
+                    {genre:"液位",url:"liquid"},
+                    {genre:"流量",url:"flow"},
+                    {genre:"調整器",url:"adjuster"},
+                    {genre:"荷重傳感器及變送器",url:"transmitter"}]
             }
             if(path=='industry' || path=='construction' || path=='manufacture' || path=='electricity' )
             {
@@ -53,14 +70,12 @@ export default {
                 return [
                     {genre:"最新公告",url:"lastest"},
                     {genre:"各期E-DM",url:"DM"},
-                    {genre:"特價品",url:"on_sale"},
                     {genre:"新品",url:"new"}]
             }
             if(path=='technology' || path == 'instruction'|| path=='maintain' || path=='FAQ' || path=='note' || path== 'theory' || path=='skill' || path=='conversion' || path=='data'  || path== 't_link' || path=='issue')
             {
                 return [
                     {genre:"產品操作說明",url:"instruction"},
-                    {genre:"產品維護手冊",url:"maintain"},
                     {genre:"FAQ",url:"FAQ"},
                     {genre:"人員安全衛生作業要點",url:"note"},
                     {genre:"理論彙集",url:"theory"},
@@ -103,6 +118,8 @@ export default {
         },
         changeroute (url) {
             this.$router.push('/home/'+ url)
+            document.body.scrollTop = 0
+        document.documentElement.scrollTop = 0
         }
     }
 }

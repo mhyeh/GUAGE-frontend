@@ -1,44 +1,17 @@
 <template>
-  <v-container>
-      <v-layout align-content-center="" column="">
-         <v-layout  row="">
-            <v-flex xs4>
-              <v-card-media height="60px" @click="changeroute">logo</v-card-media>
-            </v-flex>
-            <v-flex xs8 offset-xs6>
-                <p><b @click="changeroute">繁體中文</b>/<b>簡體中文</b>/<b>English</b>/<b @click="changeroute2('site_map')">Site Map</b>/<b>關係網頁連結</b></p>
-            </v-flex>
-         </v-layout>
-        
-        <v-flex>
-          <v-card-media height="200px" @click="changeroute">picture</v-card-media>
+    <v-container>
+        <v-flex v-bind:key=item.genre v-for="item in toolbar" offset-xs1 >
+        <p align="left" @click="changeRoute(item.url)">*{{item.genre}}</p>
+        <v-flex v-bind:key=sub.genre v-for="sub in item.sub_genre" offset-xs2>
+            <p align="left" @click="changeRoute(sub.url)" >{{sub.genre}}</p>
         </v-flex>
-        <center>
-        <v-layout row >
-            <v-flex v-bind:key=item.genre v-for="item in toolbar" xs1>
-              <v-menu z-index="1" dark open-on-hover transition="scale-transition" attach=""  offset-y="" >
-                <v-btn center color="grey lighten-3"  block @click="changeroute2(item.url)" right slot="activator"><b>{{ item.genre }}</b></v-btn>
-                <v-list  v-if="item.sub_genre !== undefined">
-                  <v-list-tile v-bind:key=sub.genre v-for="sub in item.sub_genre">
-                    <v-btn  block  ripple flat @click="changeroute2(sub.url)">
-                      <v-list-tile-title><font size="4">{{sub.genre}}</font></v-list-tile-title>
-                    </v-btn>
-                  </v-list-tile>
-                </v-list>
-              </v-menu>
-            </v-flex>
-        </v-layout>
-        </center>
-      </v-layout>
-  </v-container>
+        </v-flex>
+    </v-container>
 </template>
 
-
 <script>
-import api from '../store/api'
 export default {
-  props:['path'],
-  data () {
+   data () {
     return {
       toolbar: [
         {
@@ -81,35 +54,34 @@ export default {
         },
         {
           genre : "產品目錄",
-          url:"new"
+          url:"new",
+          sub_genre:[{genre:"新品",url:"new"},
+                    {genre:"指針式壓力錶",url:"pointer_pressure"},
+                    {genre:"類比輸出壓力開關",url:"pressure_switch"},
+                    {genre:"壓力傳感(送)器",url:"pressure_transmitter"},
+                    {genre:"智能型變送器",url:"transmitter"},
+                    {genre:"數位式壓力錶",url:"digit_pressure"},
+                    {genre:"指針式溫度表",url:"pointer_thermometer"},
+                    {genre:"機械式溫度開關",url:"temperature_switch"},
+                    {genre:"數位溫度表",url:"digit_thermometer"},
+                    {genre:"TC熱電偶",url:"TC_dipole"},
+                    {genre:"RTD熱電阻",url:"RTD_resistance"},
+                    {genre:"玻璃管溫度計",url:"glass_thermometer"},
+                    {genre:"隔膜",url:"septum"},
+                    {genre:"校驗儀器",url:"vertify"},
+                    {genre:"配件",url: "accessory"},
+                    {genre:"型錄下載",url:"download"}]
         },
         {
           genre: "衍生產品",
           url:"FRL",
-          sub_genre:[{
-          genre:"F.R.L 1~3點組合",
-          url:"FRL"
-          },
-          {
-            genre:"閥類",
-            url:"valve"
-          },
-          {
-            genre:"液位",
-            url:"liquid"
-          },
-          {
-            genre:"流量",
-            url:"flow"
-          },
-          {
-            genre:"調整器",
-            url:"adjuster"
-          },
-          {
-            genre:"荷重傳感器及變送器",
-            url:"transmitter"
-          }]
+          sub_genre:[
+            {genre:"F.R.L 1~3點組合",url:"FRL"},
+            {genre:"閥類",url:"valve"},
+            {genre:"液位",url:"liquid"},
+            {genre:"流量",url:"flow"},
+            {genre:"調整器",url:"adjuster"},
+            {genre:"荷重傳感器及變送器",url:"transmitter"}]
         },
         {
           genre: "應用產業",
@@ -274,7 +246,7 @@ export default {
         },
         {
           genre:"聯絡我們",
-          url:"information",
+          url:"imformation",
           sub_genre:[{
             genre:"我要留言",
             url:"message"
@@ -286,19 +258,15 @@ export default {
         }
       ]
     }
-  },
-  methods: {
-    changeroute () {
-      document.body.scrollTop = 0
-        document.documentElement.scrollTop = 0
-      this.$router.push('/')
-    },
-    changeroute2(url){
-      document.body.scrollTop = 0
-      document.documentElement.scrollTop = 0
-      this.$router.push('/home/' + url)
-    }
-  }
+   },
+   methods:{
+       changeRoute(url)
+       {
+            document.body.scrollTop = 0
+            document.documentElement.scrollTop = 0
+            this.$router.push('/home/' + url)
+       }
+   }
 }
 </script>
 

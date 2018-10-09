@@ -1,6 +1,10 @@
 import axios from 'axios'
 
-let client = axios.create()
+let client = axios.create({
+    baseURL: 'http://localhost:3000',
+    timeout: 60000
+})
+
 
 export default {
     login: function(account,password) {
@@ -19,16 +23,28 @@ export default {
     message:function(data){//我要留言
         return client.post('/message',{data:data})
     },
-    inquiry:function(data){//詢價單
-        return client.post('/inquiry',{data:data})
+    inquiry:function(token, data){//詢價單
+        return client.post('/inquiry',{data:data},{headers:{'Auth': token}})
     },
-    productUpdata:function(type){
+    getProduct:function(type){
         return client.get('/product',{type:type})
     },
-    articleUpdate:function(type){
+    getArticleByType:function(type){
         return client.get('/article',{type:type})
+    },
+    getArticle:function(id){
+        return client.get('/article/'+id);
     },
     product:function(id){
         return client.get('/product/'+id,{id:id})
+    },
+    sendEmail:function(data){
+        return client.post('/mail',{data:data})
+    },
+    getArticleByName(name){
+        return client.get('/article/name/'+name)
+    },
+    register(data){
+        return client.post('./accountcheck',{data:data})
     }
 }
