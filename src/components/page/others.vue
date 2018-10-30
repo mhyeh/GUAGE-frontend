@@ -1,7 +1,7 @@
 <template>
     <v-container>
-    <top></top>
-    <v-layout row="">
+    <top class="top"></top>
+    <v-layout class="mid"  row="">
         <v-flex xs2>
             <left :path="path"></left>
         </v-flex>
@@ -26,5 +26,13 @@ export default {
 </script>
 
 <style>
+.top {
+    position: relative;
+    z-index: 100;
+}
 
+.mid {
+    position: relative;
+    z-index: 0;
+}
 </style>

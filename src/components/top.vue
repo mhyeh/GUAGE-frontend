@@ -6,7 +6,7 @@
               <v-card-media height="60px" @click="changeroute">logo</v-card-media>
             </v-flex>
             <v-flex xs8 offset-xs6>
-                <p><b @click="changeroute">繁體中文</b>/<b>簡體中文</b>/<b>English</b>/<b @click="changeroute2('site_map')">Site Map</b>/<b>關係網頁連結</b></p>
+                <p><b @click="changeroute">繁體中文</b>/<b>簡體中文</b>/<b>English</b>/<b @click="changeroute2('site_map')">Site Map</b>/<b  @click="changeroute2('relation')">關係網頁連結</b></p>
             </v-flex>
          </v-layout>
         
@@ -14,13 +14,17 @@
           <v-card-media height="200px" @click="changeroute">picture</v-card-media>
         </v-flex>
         <center>
+          <v-flex xs12>
+          <v-card flat z-inde:1>
+          <v-toolbar  floating flat>
+            <v-toolbar-items flat>
         <v-layout row >
-            <v-flex v-bind:key=item.genre v-for="item in toolbar" xs1>
-              <v-menu z-index="1" dark open-on-hover transition="scale-transition" attach=""  offset-y="" >
-                <v-btn center color="grey lighten-3"  block @click="changeroute2(item.url)" right slot="activator"><b>{{ item.genre }}</b></v-btn>
-                <v-list  v-if="item.sub_genre !== undefined">
-                  <v-list-tile v-bind:key=sub.genre v-for="sub in item.sub_genre">
-                    <v-btn  block  ripple flat @click="changeroute2(sub.url)">
+            <v-flex v-bind:key=item.genre v-for="item in toolbar">
+              <v-menu class="top" dark open-on-hover transition="scale-transition" attach=""  offset-y="" >
+                <v-btn class="btntop" right  color="grey lighten-3"  block @click="changeroute2(item.url)" slot="activator"><b>{{ item.genre }}</b></v-btn>
+                <v-list class="top" v-if="item.sub_genre !== undefined">
+                  <v-list-tile class="top" v-bind:key=sub.genre v-for="sub in item.sub_genre">
+                    <v-btn class="top"  block  ripple flat @click="changeroute2(sub.url)">
                       <v-list-tile-title><font size="4">{{sub.genre}}</font></v-list-tile-title>
                     </v-btn>
                   </v-list-tile>
@@ -28,6 +32,10 @@
               </v-menu>
             </v-flex>
         </v-layout>
+            </v-toolbar-items>
+          </v-toolbar>
+          </v-card>
+          </v-flex>
         </center>
       </v-layout>
   </v-container>
@@ -303,5 +311,14 @@ export default {
 </script>
 
 <style>
+
+.btntop{ 
+  min-height: 50px;
+  z-index: 2;
+}
+
+.top{
+  z-index:1;
+}
 
 </style>

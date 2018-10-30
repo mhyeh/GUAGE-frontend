@@ -1,9 +1,7 @@
 <template>
   <v-container>
       <v-layout column="">
-          <v-flex xs2>
-              <v-btn color="light-blue lighten-5" block height="30px" ripple=""  align="center" v-bind:key=item.genre v-for="item in toolbar(path)" @click="changeroute(item.url)"><b>{{ item.genre }}</b></v-btn>
-            </v-flex>
+              <v-btn class="left" color="light-blue lighten-5" block ripple=""  align="center" v-bind:key=item.genre v-for="item in toolbar(path)" @click="changeroute(item.url)"><b>{{ item.genre }}</b></v-btn>
       </v-layout>
   </v-container>
 </template>
@@ -28,7 +26,7 @@ export default {
                    {genre:"認證報告",url:"report"},
                    {genre:"關係網頁連結",url:"relation"}]
             }
-            if(path=='catalog' || path=='download'  || path=='new' || path=='pointer_pressure' || path=='pressure_switch' || path=='pressure_transmitter' || path=='transmitter' || path=='digit_pressure' ||  path=='pointer_thermometer' ||  path=='temperature_switch' || path=='digit_thermometer' || path=='TC_dipole' || path=='RTD_resistance' || path=='glass_thermometer' || path=='septum' || path=='vertify' || path=='accessory')
+            if(path=='catalog' || path=='download'  || path=='new' || path=='pointer_pressure' || path=='pressure_switch' || path=='pressure_transmitter' || path=='transmitter' || path=='digit_pressure' ||  path=='pointer_thermometer' ||  path=='temperature_switch' || path=='digit_thermometer' || path=='TC_dipole' || path=='RTD_resistance' || path=='glass_thermometer' || path=='septum' || path=='vertify' || path=='accessory' || path=='search')
             {
                 return[
                     {genre:"新品",url:"new"},
@@ -99,7 +97,7 @@ export default {
                     {genre:"友好網頁連結",url:"friend"},
                     {genre:"國營事業連結",url:"national"},
                     {genre:"工業開發科技園區",url:"develop"},
-                    {genre:"政府機關連結",url:"governomemt"},
+                    {genre:"政府機關連結",url:"governoment"},
                     {genre:"砂金源頭",url:"source"},
                     {genre:"貿易交易交流",url:"commerce"},
                     {genre:"工作/生活百科",url:"work"},
@@ -115,16 +113,29 @@ export default {
                     {genre:"聯絡資訊",url:"information"}
                 ]
             }
+            if(path=='member' || path=='update' || path=='order' || path=='memberAsk'){
+                return [
+                    {genre:"會員資料",url:"member"},
+                    {genre:"修改會員資料",url:"update"},
+                    {genre:"詢價單紀錄",url:"memberAsk"},
+                    {genre:"訂單",url:"order"},
+                ]
+            }
         },
         changeroute (url) {
             this.$router.push('/home/'+ url)
             document.body.scrollTop = 0
         document.documentElement.scrollTop = 0
         }
+    },
+    beforeMount(){
     }
 }
 </script>
 
 <style>
-
+.left{
+    z-index:0;
+    min-height: 20px;
+}
 </style>

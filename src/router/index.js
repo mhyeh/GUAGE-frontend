@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/page/home'
 import Others from '@/components/page/others'
+import Articleview from '@/components/page/article_view'
+import ProductView from '@/components/page/product_view'
 
 Vue.use(Router)
 
@@ -23,6 +25,18 @@ export default new Router({
 
       //   }
       // ]
+    },
+    {
+      path:'/article_view/:id',
+      name:'article_view',
+      component: Articleview,
+      props:true,
+    },
+    {
+      path:'/product_view/:id',
+      name:'product_view',
+      component: ProductView,
+      props:true,
     }
   ]
 })

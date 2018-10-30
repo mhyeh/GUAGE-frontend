@@ -12,6 +12,16 @@ import Ask from './ask.vue'
 import About from './page/about.vue'
 import pdf from 'vue-pdf'
 import Register from './page/register.vue'
+import Industry from './page/Industry.vue'
+import Articleview from './page/article_view.vue'
+import Productview from './page/product_view.vue'
+import News from './page/news.vue'
+import Technology from './page/technology.vue'
+import Scene from './page/scene.vue'
+import Relation from './page/relation.vue'
+import Brand from './page/brand.vue'
+import Information from './page/information.vue'
+import Member from './page/member.vue'
 
 export default {
   Home: Home,
@@ -27,5 +37,15 @@ export default {
   Ask: Ask,
   About: About,
   pdf: pdf,
-  Register: Register
+  Register: Register,
+  Industry: Industry,
+  Articleview: Articleview,
+  Productview: Productview,
+  News: News,
+  Technology: Technology,
+  Scene: Scene,
+  Relation: Relation,
+  Brand: Brand,
+  Information: Information,
+  Member: Member
 }

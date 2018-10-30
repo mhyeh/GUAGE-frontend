@@ -21,6 +21,36 @@
         <v-card v-else-if="path=='register'">
             <register :path="path"></register>
         </v-card>
+        <v-card v-else-if="path=='construction' || path=='manufacture' || path=='electricity'">
+            <industry :path="path"></industry>
+        </v-card>
+        <v-card v-else-if="path=='lastest' || path=='DM'">
+            <news :path="path"></news>
+        </v-card>
+        <v-card v-else-if="path=='product_view'">
+            <productview></productview>
+        </v-card>
+        <v-card v-else-if="path=='article_view'">
+            <articleview></articleview>
+        </v-card>
+        <v-card v-else-if="path=='instruction' || path=='FAQ' || path=='note' || path=='theory' || path=='skill' || path=='conversion' || path=='data' || path=='t_link' || path=='issue'">
+            <technology :path="path"></technology>
+        </v-card>
+        <v-card v-else-if="path=='equipment' || path=='film' || path=='picture'">
+            <scene :path="path"></scene>
+        </v-card>
+        <v-card v-else-if="path=='relation' || path=='friend' || path=='national' || path=='develop'|| path=='governoment'||path=='source'||path=='commerce'||path=='work'||path=='rest'||path=='life'||path=='enterprise'||path=='association'">
+            <relation :path="path"></relation>
+        </v-card>
+        <v-card v-else-if="path=='brands'">
+            <brand></brand>
+        </v-card>
+        <v-card v-else-if="path=='information'">
+            <information :path="path"></information>
+        </v-card>
+        <v-card v-else-if="path=='member' || path=='order' || path=='memberAsk' || path=='update'">
+            <member :path="path"></member>
+        </v-card>
     </v-container>
 </template>
 
@@ -84,7 +114,7 @@ export default {
                 {title:"友好網頁連結",path:"friend"},
                 {title:"國營事業連結",path:"national"},
                 {title:"工業開發科技園區",path:"develop"},
-                {title:"政府機關連結",path:"governomemt"},
+                {title:"政府機關連結",path:"governoment"},
                 {title:"砂金源頭",path:"source"},
                 {title:"貿易交易交流",path:"commerce"},
                 {title:"工作/生活百科",path:"work"},
@@ -98,25 +128,14 @@ export default {
                 {title:"聯絡資訊",path:"information"},
                 {title:"網站地圖",path:"site_map"},
                 {title:"詢價單",path:"shopping"},
-                {title:"會員中心",path:"member"}
+                {title:"會員資料",path:"member"},
+                {title:"訂單",path:"order"},
+                {title:"修改會員資料",path:"update"},
+                {title:"詢價單紀錄",path:"memberAsk"},
             ]
         }
     },
-    beforeMount(){
-        // if(path=='introduction' || path=='history' || path=='envirnoment' || path=='records' || path=='license' || path=='report' || path=='product_report' || path=='brands' || path=='industry' || path=='construction' || path=='manufacture' || path=='electricity' || path== 'lastest' || path=='DM' || path == 'instruction'|| path=='maintain' || path=='FAQ' || path=='note' || path== 'theory' || path=='skill' || path=='conversion' || path=='data'  || path== 't_link' || path=='issue' ||  path=='equipment' || path=='film' || path=='picture' || path=='relation' || path=='friend' || path=='national' || path=='develop' || path=='governoment' || path=='source'||path=='commerce'||path=='work'||path=='rest'||path=='life'||path=='enterprise' || path=='association' || path=='information' || path=='Q&A'){
-        //     api.getArticle(this.path).then(res=>{
-        //     }).catch(error=>{
-        //         alert(error)
-        //     })
-        // }
-        // else if(path=='new' || path=='pointer_pressure' || path=='pressure_switch' || path=='pressure_transmitter' || path=='transmitter' || path=='digit_pressure' ||  path=='pointer_thermometer' ||  path=='temperature_switch' || path=='digit_thermometer' || path=='TC_dipole' || path=='RTD_resistance' || path=='glass_thermometer' || path=='septum' || path=='vertify' || path=='accessory' || path=='product')
-        // {
-        //     api.getProduct(this.path).then(res=>{
-
-        //     }).catch(error=>{
-        //         alert(error)
-        //     })
-        // }    
+    beforeMount(){  
     },
 }
 </script>

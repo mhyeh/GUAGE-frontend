@@ -1,6 +1,6 @@
 <template>
   <v-container>
-      <v-layout align-content-center="">
+      <v-layout class="mid" align-content-center="">
         <v-flex align-start="">
           <v-card height="170px">
             <center>
@@ -14,7 +14,7 @@
           <br>
           <v-btn ripple="" block="" @click="changeroute('message')" color="light-blue lighten-5"><b><font color="#EF5350">我要留言</font></b></v-btn>
           <br>
-          <v-card v-if="this.loginFlag==false" align-center>
+          <v-card v-if="loginFlag==false" align-center>
             <v-card color="light-blue lighten-5">
               <center>
            <v-card-text><b>會員專區</b></v-card-text>
@@ -36,7 +36,15 @@
             </center>
           </v-card>
           <v-card v-else>
-
+            <v-card color="light-blue lighten-5">
+              <center>
+           <v-card-text><b>會員專區</b></v-card-text>
+              </center>
+            </v-card>
+            <center>
+            <v-btn align="center" small @click="changeroute('member')">會員專區</v-btn>
+            <v-btn align="center" small @click="logout()">登出</v-btn>
+            </center>
           </v-card>
           <br>
           <v-card>
@@ -89,29 +97,43 @@ export default {
         localStorage.setItem('token', res.data.token)
         self.loginFlag = true;
         alert("登入成功")
-        self.token = res.data.token;
         window.location.reload();
       }).catch(error => {
         alert("密碼錯誤")
       })
     },
     search() {
-      alert(this.productName)
+      let self = this
       api.search(this.productName).then(res=>{
-        alert(this.productName)
+        this.$router.push('/home/product/search/'+ self.productName)
       }).catch(error=>{
-        alert(error)
+        alert("查無此商品")
       })
     },
     register(){
       this.$router.push('/home/register');
+    },
+    logout(){
+      localStorage.removeItem('token')
+      window.location.reload()
+      this.$router.push('/')
     }
   },
   beforeMount() {
+    let self = this
+    let token = localStorage.getItem('token')
+    api.getAccount(token).then(res=>{
+        self.loginFlag=true;
+      }).catch(error=>{
+        self.loginFlag=false;
+      })
   }
 }
 </script>
 
 <style>
-
+.mid {
+    position: relative;
+    z-index: 0;
+}
 </style>

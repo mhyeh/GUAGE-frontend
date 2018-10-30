@@ -2,10 +2,10 @@
     <v-layout>
         <v-flex offset-xs1 xs10>
             <br>
-        <v-card v-if="this.pathchange == 'equipment'">
+        <v-card v-if="this.pathchange == 'construction'">
              <v-data-table
     :headers="headers"
-    :items="equipment"
+    :items="CONarticles"
     class="elevation-1"
   >
     <template slot="headerCell" slot-scope="props">
@@ -24,10 +24,10 @@
     </template>
   </v-data-table>
         </v-card>
-        <v-card v-else-if="this.pathchange == 'film'">
+        <v-card v-else-if="this.pathchange == 'manufacture'">
              <v-data-table
     :headers="headers"
-    :items="film"
+    :items="MANarticles"
     class="elevation-1"
   >
     <template slot="headerCell" slot-scope="props">
@@ -42,14 +42,14 @@
     </template>
     <template slot="items" slot-scope="props">
       <td class="text-xs-center"> {{props.item.date}} </td>
-      <td class="text-xs-center"><a v-bind:href="props.item.context">{{ props.item.title }}</a></td>
+      <td class="text-xs-center" @click="changeRoute(props.item.id)">{{ props.item.title }}</td>
     </template>
   </v-data-table>
         </v-card>
-        <v-card v-else-if="this.pathchange == 'picture'">
+        <v-card v-else-if="this.pathchange == 'electricity'">
            <v-data-table
     :headers="headers"
-    :items="picture"
+    :items="ELEarticles"
     class="elevation-1"
   >
     <template slot="headerCell" slot-scope="props">
@@ -80,12 +80,12 @@ export default {
      props: ['path'],
      data(){
          return {
-             headers:[ {text: '日期',align: 'center',sortable: false,value: 'date'},{text: '標題',align: 'center',sortable: false,value: 'title'}],
+             headers:[ {text: '日期',align: 'center',sortable: false,value: 'date'},{text: '標題',align: 'center',sortable: false,value: 'title'},],
              pagination:{},
              pathchange:'',
-             equipment:[],
-             film:[],
-             picture:[],
+             CONarticles:[],
+             MANarticles:[],
+             ELEarticles:[],
          }
      },
      methods:{
@@ -103,19 +103,18 @@ export default {
         console.log(this.path)
         //this.pathchange = this.path;
         //console.log(pathchange);
-        api.getArticleByClass(8).then(res=>{
+        api.getArticleByClass(4).then(res=>{
             for(var i in res.data.articles){
-                if(res.data.articles[i].type=='管路/設備儀表照片'){
-                    self.equipment[self.equipment.length] = res.data.articles[i];
+                if(res.data.articles[i].type=='營建工程業'){
+                    self.CONarticles[self.CONarticles.length] = res.data.articles[i];
                 }
-                else if(res.data.articles[i].type=='影片'){
-                    self.film[self.film.length] = res.data.articles[i];
+                else if(res.data.articles[i].type=='製造業'){
+                    self.MANarticles[self.MANarticles.length] = res.data.articles[i];
                 }
-                else if(res.data.articles[i].type=='文字圖案'){
-                    self.picture[self.picture.length] = res.data.articles[i];
+                else if(res.data.articles[i].type=='水火電力燃氣業'){
+                    self.ELEarticles[self.ELEarticles.length] = res.data.articles[i];
                 }
             }
-            console.log(self.picture)
         }).catch(error=>{
             alert(error)
         })
