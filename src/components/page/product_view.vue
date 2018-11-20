@@ -30,6 +30,7 @@
                 </v-layout>
                 </v-flex>
                 </v-layout>
+                <br>
                 <v-pdf scr=product.introduction></v-pdf>
             </v-card>
         </v-flex>

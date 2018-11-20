@@ -22,6 +22,7 @@ import Relation from './page/relation.vue'
 import Brand from './page/brand.vue'
 import Information from './page/information.vue'
 import Member from './page/member.vue'
+import Product from './page/product.vue'
 
 export default {
   Home: Home,
@@ -47,5 +48,6 @@ export default {
   Relation: Relation,
   Brand: Brand,
   Information: Information,
-  Member: Member
+  Member: Member,
+  Product: Product
 }

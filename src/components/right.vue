@@ -1,6 +1,6 @@
 <template>
   <v-container>
-      <v-layout class="mid" align-content-center="">
+      <v-layout class="right" align-content-center="">
         <v-flex align-start="">
           <v-card height="170px">
             <center>
@@ -56,7 +56,10 @@
           <v-text-field label="email" class="input-group--focused" v-model="email"></v-text-field>
           </v-flex>
           <center>
-          <v-btn align="center" small ripple>訂閱</v-btn>
+          <v-btn align="center" small ripple @click="subscribe()">訂閱</v-btn>
+          </center>
+          <center>
+          <v-btn align="center" small ripple @click="subscribe()">取消訂閱</v-btn>
           </center>
           </v-card>
           <br>
@@ -104,9 +107,13 @@ export default {
     },
     search() {
       let self = this
+       self.$router.push('/home/product/search/'+ self.productName)
       api.search(this.productName).then(res=>{
-        this.$router.push('/home/product/search/'+ self.productName)
+        console.log(self.productName);
+        localStorage.setItem('search',self.productName)
+       
       }).catch(error=>{
+        console.log(error);
         alert("查無此商品")
       })
     },
@@ -117,6 +124,11 @@ export default {
       localStorage.removeItem('token')
       window.location.reload()
       this.$router.push('/')
+    },
+    subscribe(){
+    },
+    unsubscribe(){
+
     }
   },
   beforeMount() {
@@ -127,13 +139,14 @@ export default {
       }).catch(error=>{
         self.loginFlag=false;
       })
-  }
+    }
 }
 </script>
 
 <style>
-.mid {
+.right {
     position: relative;
-    z-index: 0;
+    min-width: 100px;
+    max-width: 150px;
 }
 </style>

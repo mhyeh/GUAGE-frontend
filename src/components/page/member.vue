@@ -70,6 +70,50 @@
                 <br>
         </v-card>
         <v-card v-else-if="path=='order'">
+            <v-data-table
+    :headers="orderHeaders"
+    :items="orders"
+    :search="search"
+    item-key="id"
+    class="elevation-1"
+  >
+    <template slot="items" slot-scope="props">
+      <td class="text-xs-center">{{ props.item.prodName }}</td>
+      <td class="text-xs-center">{{ props.item.date }}</td>
+      <td ><v-dialog width="800"  color="#FFFFFF" class="dialogTop">
+            <v-btn  slot="activator">詳細</v-btn>
+            <v-card color="white" class="dialogCard">
+                <br>
+                    <font size=4>
+                        <font size=5>
+                        <v-flex offset-xs5>
+                        <b><p>詳細資料</p></b>
+                        </v-flex>
+                        </font>
+                        <v-layout row>
+                            <v-layout column>
+                     <v-flex xs3 offset-xs1>
+                       <p>商品名稱:{{props.item.prodName}}</p>
+                       <p>商品數量:{{props.item.number}}</p>
+                       <v-flex v-if="props.item.spec.length !=0">
+                         <p>商品規格:</p>
+                         <v-flex  v-bind:key=n v-for="n in props.item.spec.length">
+                         <p>{{n}}.&nbsp;{{props.item.spec[n-1]}}:&nbsp;&nbsp;{{props.item.specOption[n-1]}}</p>
+                         </v-flex>
+                       </v-flex>
+                        </v-flex>
+                            </v-layout>
+                            <v-flex xs8>
+                            <p>流程:</p>
+                            <v-btn large>配件/材料</v-btn>
+                            </v-flex>
+                        </v-layout>
+                </font>
+             <br>   
+            </v-card>
+            </v-dialog></td>
+    </template>
+  </v-data-table>
         </v-card>
         <v-card v-else-if="path=='memberAsk'" flat>
             <v-data-table
@@ -79,13 +123,11 @@
     item-key="id"
     class="elevation-1"
   >
-   
     <template slot="items" slot-scope="props">
-      <td>{{ props.item.id }}</td>
-      <td >{{ props.item.date }}</td>
-      <td><v-dialog width="800"  color="#FFFFFF" class="dialogTop" hide-overlay="">
+      <td class="text-xs-center">{{ props.item.date }}</td>
+      <td ><v-dialog width="800"  color="#FFFFFF" class="dialogTop">
             <v-btn  slot="activator">詳細</v-btn>
-            <v-card color="white" >
+            <v-card color="white" class="dialogTop">
                 <br>
                     <font size=4>
                         <font size=5>
@@ -127,8 +169,7 @@
                     <p>連絡電話:&nbsp;{{props.item.phone}}</p>
                     <p>E-mail:&nbsp;{{props.item.email}}</p>
                     <p>備註留言:</p>
-                    <v-textarea flat v-model="props.item.message" height="200">
-                    </v-textarea>
+                    <p>{{props.item.message}}</p>
                 </v-flex>
                 </font>
              <br>   
@@ -148,10 +189,10 @@ export default {
         return{
             account:null,
             asks:[],
+            orders:[],
             search:[],
             askHeaders:[
-                {text: '編號',align: 'left',sortable: false,value: 'id'},
-                { text: '日期', value: 'date' ,sortable: false,},
+                { text: '日期',align: 'center', value: 'date' ,sortable: false,},
                 {text:'詳細',value:'detail',sortable:false}
             ],
             askDetailHeaders:[
@@ -160,6 +201,10 @@ export default {
                 {text: '規格',align: 'center',sortable: false,value: 'detail'},
                 {text: '數量',align: 'center',sortable: false,value: 'number'}
             ],
+            orderHeaders:[
+                {text: '商品名稱',align:'center',value:'prodName',sortable:false},
+                { text: '日期',align: 'center', value: 'date' ,sortable: false,},
+                {text:'詳細',value:'detail',sortable:false}],
             name:'',
             company:'',
             password:'',
@@ -222,6 +267,7 @@ export default {
         let self = this
         let token = localStorage.getItem('token')
         let id;
+        let data = []
         if(token==null){
             this.$router.push('/')
             window.location.reload()
@@ -229,11 +275,36 @@ export default {
         api.getAccount(token).then(res=>{
             self.account = res.data.account
             let list=['name','company','sex','phone','email','birthday','qq','line','skype','fax']
-            console.log(res.data.account.id)
             id = res.data.account.id
             for(var i of list){
                 self[i] = self.account[i]
             }
+            api.getOrderByAccount(token,id).then(res=>{
+                for(var i=0;i<res.data.orders.length;i++){
+            let t = {
+            account: ""
+          }
+          t.account = res.data.orders[i].acID + ' ' + res.data.orders[i].acName;
+          t.prodName = res.data.orders[i].prodName;
+          t.acName = res.data.orders[i].acName
+          let s = res.data.orders[i].spec
+          let S = res.data.orders[i].specOption      
+          s = s.split(',')
+          S = S.split(',')
+          t.spec = s
+          t.specOption = S
+          let d = res.data.orders[i].state;
+          d = d.split(' ');
+          t.step = d[0];
+          t.stepPer = d[1];
+          t.number = res.data.orders[i].number
+          t.date = res.data.orders[i].date
+          t.id = res.data.orders[i].id
+          data.push(t)
+        }
+        self.orders = data
+            }).catch(error=>{
+            })
             api.getAsksByID(token,id).then(res=>{
                 self.asks = res.data.inquirys
                 for(var i=0;i< self.asks.length;i++){
@@ -250,8 +321,8 @@ export default {
 </script>
 
 <style>
-.dialogTop{
+.dialogCard{
     position: relative;
-    z-index:10000000;
+    z-index:100;
 }
 </style>

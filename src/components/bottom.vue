@@ -1,9 +1,15 @@
 <template>
   <v-footer height="300px">
       <v-layout row wrap="" justify-center="">
-          <v-flex  v-bind:key=item.url v-for="item in toolbar" >
-                <v-btn @click="changeroute(item.url)"  ripple="" flat=""><b>{{ item.genre }}</b></v-btn>
-        </v-flex>
+         <v-toolbar  floating flat>
+            <v-toolbar-items flat>
+        <v-layout row >
+            <v-flex v-bind:key=item.genre v-for="item in toolbar">
+                <v-btn class="btnbottom" right flat  block @click="changeroute(item.url)" slot="activator"><b>{{ item.genre }}</b></v-btn>
+            </v-flex>
+        </v-layout>
+            </v-toolbar-items>
+          </v-toolbar>
           <v-flex xs12 text-xs-center><br>地址: 台北市北投區致遠一路二段109號 電話: 886-2-28235699  傳真: 886-2-28270646<br>亞帝有限公司版權所有</v-flex>
       </v-layout>
   </v-footer>
@@ -38,5 +44,8 @@ export default {
 </script>
 
 <style>
-
+.btnbottom{
+   min-height: 50px;
+   min-width: 100px;
+}
 </style>

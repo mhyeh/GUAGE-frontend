@@ -51,6 +51,9 @@
         <v-card v-else-if="path=='member' || path=='order' || path=='memberAsk' || path=='update'">
             <member :path="path"></member>
         </v-card>
+        <v-card v-else-if="path=='pointer_pressure'||path=='pressure_switch'||path=='pressure_transmitter'||path=='transmitter'||path=='digit_pressure'||path=='pointer_thermometer'||path=='temperature_switch'||path=='digit_thermometer'||path=='TC_dipole'||path=='RTD_resistance'||path=='glass_thermometer'||path=='septum'||path=='vertify'||path=='accessory'||path=='FRL'||path=='valve'||path=='liquid'||path=='flow'||path=='adjuster'||path=='load_transmitter'||path=='newGoods' || path=='download'">
+            <product :path="path"></product>
+        </v-card>
     </v-container>
 </template>
 
@@ -70,7 +73,7 @@ export default {
                 {title:"產品校正報告",path:"product_report"},
                 {title:"認證報告",path:"report"},
                 {title:"型錄下載",path:"download"},
-                {title:"新品",path:"new"},
+                {title:"新品",path:"newGoods"},
                 {title:"指針式壓力錶",path:"pointer_pressure"},
                 {title:"類比輸出壓力開關",path:"pressure_switch"},
                 {title:"壓力傳感(送)器",path:"pressure_transmitter"},
@@ -85,12 +88,12 @@ export default {
                 {title:"隔膜",path:"septum"},
                 {title:"校驗儀器",path: "vertify"},
                 {title:"配件",path: "accessory"},
-                {title:"F.R.L 1~3點組合",url:"FRL"},
-                {title:"閥類",url:"valve"},
-                {title:"液位",url:"liquid"},
-                {title:"流量",url:"flow"},
-                {title:"調整器",url:"adjuster"},
-                {title:"荷重傳感器及變送器",url:"transmitter"},
+                {title:"F.R.L 1~3點組合",path:"FRL"},
+                {title:"閥類",path:"valve"},
+                {title:"液位",path:"liquid"},
+                {title:"流量",path:"flow"},
+                {title:"調整器",path:"adjuster"},
+                {title:"荷重傳感器及變送器",path:"load_transmitter"},
                 {title:"品牌衍生",path:"brands"},
                 {title:"營建工程業",path:"construction"},
                 {title:"製造業",path:"manufacture"},

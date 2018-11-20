@@ -238,8 +238,6 @@ export default {
      },
     beforeMount(){
         let self = this;
-        console.log(this.path)
-        this.pathchange = this.path;
         api.getArticleByClass(7).then(res=>{
             console.log(res.data.articles)
             for(var i in res.data.articles){
@@ -272,6 +270,7 @@ export default {
                     self.issue[self.issue.length] = res.data.articles[i];
                 }
             }
+            self.pathchange = self.path
         }).catch(error=>{
             alert(error)
         })

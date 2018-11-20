@@ -26,10 +26,10 @@ export default {
                    {genre:"認證報告",url:"report"},
                    {genre:"關係網頁連結",url:"relation"}]
             }
-            if(path=='catalog' || path=='download'  || path=='new' || path=='pointer_pressure' || path=='pressure_switch' || path=='pressure_transmitter' || path=='transmitter' || path=='digit_pressure' ||  path=='pointer_thermometer' ||  path=='temperature_switch' || path=='digit_thermometer' || path=='TC_dipole' || path=='RTD_resistance' || path=='glass_thermometer' || path=='septum' || path=='vertify' || path=='accessory' || path=='search')
+            if(path=='catalog' || path=='download'  || path=='newGoods' || path=='pointer_pressure' || path=='pressure_switch' || path=='pressure_transmitter' || path=='transmitter' || path=='digit_pressure' ||  path=='pointer_thermometer' ||  path=='temperature_switch' || path=='digit_thermometer' || path=='TC_dipole' || path=='RTD_resistance' || path=='glass_thermometer' || path=='septum' || path=='vertify' || path=='accessory' || path=='search')
             {
                 return[
-                    {genre:"新品",url:"new"},
+                    {genre:"新品",url:"newGoods"},
                     {genre:"指針式壓力錶",url:"pointer_pressure"},
                     {genre:"類比輸出壓力開關",url:"pressure_switch"},
                     {genre:"壓力傳感(送)器",url:"pressure_transmitter"},
@@ -46,7 +46,7 @@ export default {
                     {genre:"配件",url: "accessory"},
                     {genre:"型錄下載",url:"download"}]
             }
-            if(path=='FRL'||path=='valve'||path=='liquid'||path=='flow'||path=='adjuster'||path=='transmitter')
+            if(path=='FRL'||path=='valve'||path=='liquid'||path=='flow'||path=='adjuster'||path=='load_transmitter')
             {
                 return [
                     {genre:"F.R.L 1~3點組合",url:"FRL"},
@@ -54,7 +54,7 @@ export default {
                     {genre:"液位",url:"liquid"},
                     {genre:"流量",url:"flow"},
                     {genre:"調整器",url:"adjuster"},
-                    {genre:"荷重傳感器及變送器",url:"transmitter"}]
+                    {genre:"荷重傳感器及變送器",url:"load_transmitter"}]
             }
             if(path=='industry' || path=='construction' || path=='manufacture' || path=='electricity' )
             {
@@ -68,7 +68,7 @@ export default {
                 return [
                     {genre:"最新公告",url:"lastest"},
                     {genre:"各期E-DM",url:"DM"},
-                    {genre:"新品",url:"new"}]
+                    {genre:"新品",url:"newGoods"}]
             }
             if(path=='technology' || path == 'instruction'|| path=='maintain' || path=='FAQ' || path=='note' || path== 'theory' || path=='skill' || path=='conversion' || path=='data'  || path== 't_link' || path=='issue')
             {
@@ -123,9 +123,11 @@ export default {
             }
         },
         changeroute (url) {
+            console.log(url)
             this.$router.push('/home/'+ url)
             document.body.scrollTop = 0
-        document.documentElement.scrollTop = 0
+            document.documentElement.scrollTop = 0
+            window.location.reload()
         }
     },
     beforeMount(){
@@ -137,5 +139,6 @@ export default {
 .left{
     z-index:0;
     min-height: 20px;
+    max-width:150px;
 }
 </style>

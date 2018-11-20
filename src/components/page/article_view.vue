@@ -47,7 +47,7 @@ export default {
                 return [
                     {genre:"最新公告",url:"lastest"},
                     {genre:"各期E-DM",url:"DM"},
-                    {genre:"新品",url:"new"}]
+                    {genre:"新品",url:"newGoods"}]
             }
             if(this.article.classID==7)
             {
@@ -89,7 +89,7 @@ export default {
          changeroute (url) {
             this.$router.push('/home/'+ url)
             document.body.scrollTop = 0
-        document.documentElement.scrollTop = 0
+            document.documentElement.scrollTop = 0
         }
     },
     beforeMount(){

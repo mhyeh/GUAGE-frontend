@@ -2,7 +2,7 @@
     <v-layout>
         <v-flex offset-xs1 xs10>
             <br>
-        <v-card v-if="this.pathchange == 'lastest'">
+        <v-card v-if="pathchange == 'lastest'">
              <v-data-table
     :headers="headers"
     :items="articles"
@@ -24,7 +24,7 @@
     </template>
   </v-data-table>
         </v-card>
-        <v-card v-else-if="this.pathchange == 'DM'">
+        <v-card v-else-if="pathchange == 'DM'">
              <v-data-table
     :headers="headers"
     :items="DM"
@@ -59,7 +59,6 @@ export default {
      data(){
          return {
              headers:[ {text: '日期',align: 'center',sortable: false,value: 'date'},{text: '標題',align: 'center',sortable: false,value: 'title'},],
-             pagination:{},
              pathchange:'',
              articles:[],
              DM:[],

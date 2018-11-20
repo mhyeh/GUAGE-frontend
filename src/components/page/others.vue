@@ -26,10 +26,6 @@ export default {
 </script>
 
 <style>
-.top {
-    position: relative;
-    z-index: 100;
-}
 
 .mid {
     position: relative;

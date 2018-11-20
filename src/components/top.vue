@@ -15,7 +15,7 @@
         </v-flex>
         <center>
           <v-flex xs12>
-          <v-card flat z-inde:1>
+          <v-card flat>
           <v-toolbar  floating flat>
             <v-toolbar-items flat>
         <v-layout row >
@@ -89,7 +89,7 @@ export default {
         },
         {
           genre : "產品目錄",
-          url:"new"
+          url:"newGoods"
         },
         {
           genre: "衍生產品",
@@ -116,7 +116,7 @@ export default {
           },
           {
             genre:"荷重傳感器及變送器",
-            url:"transmitter"
+            url:"load_transmitter"
           }]
         },
         {
@@ -313,12 +313,9 @@ export default {
 <style>
 
 .btntop{ 
+  position: relative;
   min-height: 50px;
   z-index: 2;
-}
-
-.top{
-  z-index:1;
 }
 
 </style>

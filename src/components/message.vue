@@ -10,13 +10,10 @@
         <v-text-field label="連絡電話*"  class="input-group--focused" v-model="phone"></v-text-field>
         </v-flex>
         <v-flex xs9 offset-xs1>
-        <v-text-field label="手機"  class="input-group--focused" v-model="cellphone"></v-text-field>
+        <v-text-field label="手機*"  class="input-group--focused" v-model="cellphone"></v-text-field>
         </v-flex>
         <v-flex xs9 offset-xs1>
         <v-text-field label="傳真"  class="input-group--focused" v-model="fax"></v-text-field>
-        </v-flex>
-        <v-flex xs9 offset-xs1>
-        <v-text-field label="聯絡地址"  class="input-group--focused" v-model="address"></v-text-field>
         </v-flex>
         <v-flex xs9 offset-xs1>
         <v-text-field label="E-mail*"  class="input-group--focused" v-model="email"></v-text-field>
@@ -34,6 +31,7 @@
 </template>
 
 <script>
+import api from '../store/api'
 var list = ["company","name","phone","email","title","message"]
 export default {
     data(){
@@ -43,7 +41,6 @@ export default {
             phone:'',
             cellphone:'',
             fax:'',
-            address:'',
             email:'',
             title:'',
             message:'',
@@ -62,11 +59,26 @@ export default {
                     return;
                 }
             }
-            alert("發送成功");
-            this.$router.push('/');
-            document.body.scrollTop = 0
-            document.documentElement.scrollTop = 0
+            api.send('message',this.$data).then(res=>{
+                alert("發送成功");
+                this.$router.push('/');
+                document.body.scrollTop = 0
+                document.documentElement.scrollTop = 0
+            }).catch(error=>{
+            })
+            
         }
+    },
+    beforeMount(){
+        let token = localStorage.getItem('token')
+        let self = this
+        api.getAccount(token).then(res=>{
+            self.company = res.data.account.company
+            self.name = res.data.account.name
+            self.phone = res.data.account.phone
+            self.fax = res.data.account.fax
+            self.email = res.data.account.email
+        })
     }
 }
 </script>

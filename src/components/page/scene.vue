@@ -115,9 +115,8 @@ export default {
                     self.picture[self.picture.length] = res.data.articles[i];
                 }
             }
-            console.log(self.picture)
+            self.pathchange = self.path
         }).catch(error=>{
-            alert(error)
         })
     }
 }

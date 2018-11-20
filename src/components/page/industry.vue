@@ -100,9 +100,6 @@ export default {
      },
     beforeMount(){
         let self = this;
-        console.log(this.path)
-        //this.pathchange = this.path;
-        //console.log(pathchange);
         api.getArticleByClass(4).then(res=>{
             for(var i in res.data.articles){
                 if(res.data.articles[i].type=='營建工程業'){
@@ -115,9 +112,12 @@ export default {
                     self.ELEarticles[self.ELEarticles.length] = res.data.articles[i];
                 }
             }
+            self.pathchange = self.path
         }).catch(error=>{
             alert(error)
         })
+
+        
     }
 }
 </script>

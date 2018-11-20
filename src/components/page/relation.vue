@@ -19,7 +19,7 @@
       </v-tooltip>
     </template>
     <template slot="items" slot-scope="props">
-     <td class="text-xs-center"><a v-bind:href="props.item.context"><font size=4>{{ props.item.title }}</font></a></td>
+     <td class="text-xs-center"><a v-bind:href="props.item.context" ><font size=4>{{ props.item.title }}</font></a></td>
     </template>
   </v-data-table>
         </v-card>
@@ -296,7 +296,6 @@ export default {
     beforeMount(){
         let self = this;
         console.log(this.path)
-        this.pathchange = this.path;
         api.getArticleByClass(9).then(res=>{
             console.log(res.data.articles)
             for(var i in res.data.articles){
@@ -338,8 +337,8 @@ export default {
                     self.association[self.association.length] = res.data.articles[i];
                 }
             }
+            self.pathchange = self.path
         }).catch(error=>{
-            alert(error)
         })
     }
 }
@@ -347,5 +346,8 @@ export default {
 
 
 <style>
-
+a {
+    text-decoration:none;
+    color :black
+}
 </style>

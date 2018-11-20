@@ -26,10 +26,10 @@
             <b><font size=4>*帳號</font><font size=2>6~20個字(小寫英文字母或數字)</font></b><v-text-field counter="20" background-color="white" v-model="account" label=""  color="black" persistent-hint></v-text-field>
                 </v-flex>
                  <v-flex xs4 offset-xs4>
-            <b><font size=4>*密碼</font><font size=2>6~20個字(小寫英文字母或數字)</font></b><v-text-field counter="20" background-color="white" v-model="password" label=""  color="black" persistent-hint></v-text-field>
+            <b><font size=4>*密碼</font><font size=2>6~20個字(小寫英文字母或數字)</font></b><v-text-field counter="20" :type="'password'" background-color="white" v-model="password" label=""  color="black" persistent-hint></v-text-field>
                 </v-flex>
                 <v-flex xs4 offset-xs4><br>
-            <b><font size=4>*密碼再確認</font></b><v-text-field background-color="white" v-model="password2" label=""  color="black" persistent-hint></v-text-field>
+            <b><font size=4>*密碼再確認</font></b><v-text-field background-color="white" v-model="password2" counter="20" :type="'password'" color="black" persistent-hint></v-text-field>
                 </v-flex>
                  <v-flex xs4 offset-xs4>
             <b><font size=4>*電子郵件</font></b><v-text-field background-color="white" v-model="email" label=""  color="black" persistent-hint></v-text-field>

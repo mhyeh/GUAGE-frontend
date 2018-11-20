@@ -67,6 +67,9 @@
 
 <script>
 let list =["name","sex","age","birth_country","number","education","department","graduation","phone","email"]
+
+import api from '../store/api'
+
 export default {
     data(){
         return {
@@ -91,7 +94,6 @@ export default {
         send(){
             for(var i of list)
             {
-                console.log(this[i])
                 if(this[i] === '')
                 {
                     alert("有必填選項未填")
@@ -100,10 +102,20 @@ export default {
                     return;
                 }
             }
-            alert("發送成功");
-            this.$router.push('/');
-            document.body.scrollTop = 0
-            document.documentElement.scrollTop = 0
+            let data={
+            }
+            let bar=["name","sex","age","birth_country","number","education","department","graduation","phone","email","birthday","address","study_experience","work_experience","introduction"]
+            for(var i of bar){
+                data[i] = this.$data[i]
+            }
+            api.send('recommend',data).then(res=>{
+                alert("發送成功");
+                this.$router.push('/');
+                document.body.scrollTop = 0
+                document.documentElement.scrollTop = 0
+            }).catch(error=>{
+            })
+            
         }
     }
 }
