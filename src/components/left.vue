@@ -123,11 +123,10 @@ export default {
             }
         },
         changeroute (url) {
-            console.log(url)
             this.$router.push('/home/'+ url)
             document.body.scrollTop = 0
             document.documentElement.scrollTop = 0
-            window.location.reload()
+            //window.location.reload()
         }
     },
     beforeMount(){

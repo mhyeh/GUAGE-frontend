@@ -15,7 +15,7 @@
                 </center>
                 <v-layout row>
                     <v-flex xs5 offset-xs1>
-                <v-card-media v-bind:src=product.picture height=auto-height></v-card-media>
+                <v-card-media v-bind:src=product.picture height="200px"></v-card-media>
                     </v-flex>
                 <v-flex offset-xs1 xs4>
                 <v-layout column>
@@ -26,7 +26,7 @@
                     <v-text-field v-if="specSelect[n-1]=='其他(自填)'" background-color="white" label="" color="black" persistent-hint v-model="otherSelect[n-1]"></v-text-field>
                     </v-flex>
                     <v-btn @click="ask()">加入詢價單</v-btn>
-                    <v-btn><a href=product.download target="_blank" :download=product.name>型錄下載</a></v-btn>
+                    <v-btn><a :href=product.download target="_blank" :download=product.name>型錄下載</a></v-btn>
                 </v-layout>
                 </v-flex>
                 </v-layout>
@@ -69,7 +69,7 @@ export default {
             specSelect:[],
             otherSelect:[],
             numPages:2,
-            toolbar:[{genre:"新品",url:"new"},
+            toolbar:[{genre:"新品",url:"newGoods"},
                     {genre:"指針式壓力錶",url:"pointer_pressure"},
                     {genre:"類比輸出壓力開關",url:"pressure_switch"},
                     {genre:"壓力傳感(送)器",url:"pressure_transmitter"},

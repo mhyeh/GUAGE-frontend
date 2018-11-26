@@ -6,7 +6,7 @@
               <v-card-media height="60px" @click="changeroute" src="http://210.61.46.101:8787/uploadedFile/logo.jpg"></v-card-media>
             </v-flex>
             <v-flex xs8 offset-xs6>
-                <p><b @click="changeroute">繁體中文</b>//<b @click="changeroute2('site_map')">Site Map</b>/<b  @click="changeroute2('relation')">關係網頁連結</b></p>
+                <p><b @click="changeroute">繁體中文</b>/<b @click="changeroute2('site_map')">Site Map</b>/<b  @click="changeroute2('relation')">關係網頁連結</b></p>
             </v-flex>
          </v-layout>
         

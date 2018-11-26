@@ -4,6 +4,7 @@ import Home from '@/components/page/home'
 import Others from '@/components/page/others'
 import Articleview from '@/components/page/article_view'
 import ProductView from '@/components/page/product_view'
+import Search from '@/components/page/search.vue'
 
 Vue.use(Router)
 
@@ -36,6 +37,12 @@ export default new Router({
       path:'/product_view/:id',
       name:'product_view',
       component: ProductView,
+      props:true,
+    },
+    {
+      path:'/search/:name',
+      name:'search',
+      component: Search,
       props:true,
     }
   ]

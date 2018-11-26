@@ -23,6 +23,7 @@ import Brand from './page/brand.vue'
 import Information from './page/information.vue'
 import Member from './page/member.vue'
 import Product from './page/product.vue'
+import Search from './page/search.vue'
 
 export default {
   Home: Home,
@@ -49,5 +50,6 @@ export default {
   Brand: Brand,
   Information: Information,
   Member: Member,
-  Product: Product
+  Product: Product,
+  Search: Search
 }

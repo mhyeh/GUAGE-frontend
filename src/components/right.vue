@@ -107,15 +107,7 @@ export default {
     },
     search() {
       let self = this
-       self.$router.push('/home/product/search/'+ self.productName)
-      api.search(this.productName).then(res=>{
-        console.log(self.productName);
-        localStorage.setItem('search',self.productName)
-       
-      }).catch(error=>{
-        console.log(error);
-        alert("查無此商品")
-      })
+       self.$router.push('/search/'+ self.productName)
     },
     register(){
       this.$router.push('/home/register');
