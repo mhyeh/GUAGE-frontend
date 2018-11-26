@@ -110,7 +110,6 @@ export default {
               alert("申請成功請等待審核...(大約3~5天工作天)")
               window.location.reload();
           }).catch(error=>{
-              console.log(error)
               alert("此帳號已被使用")
           })
       }

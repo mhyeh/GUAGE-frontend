@@ -103,7 +103,6 @@ export default {
                  picture: null,
                  amount:'',
              }
-             console.log(obj.spec.length)
              obj.id=this.product.id
              obj.name=this.product.name
              obj.picture=this.product.picture
@@ -118,14 +117,12 @@ export default {
                      obj.specOption[obj.specOption.length] = this.specSelect[n]
                  }
              }
-             console.log(obj)
              let objList = [];
              if(localStorage.getItem('ask')!=null){
                   objList = JSON.parse(localStorage.getItem('ask'))
              }
              obj.number = objList.length;
              objList[objList.length] = obj;
-             console.log(JSON.stringify(objList))
              localStorage.setItem('ask',JSON.stringify(objList))
              this.$router.push('/home/shopping')
          }
@@ -156,7 +153,6 @@ export default {
                 self.product['specOption'] = D
             }
         }).catch(error=>{
-            alert(error)
         })
 
     }

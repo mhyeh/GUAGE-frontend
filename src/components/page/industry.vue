@@ -114,7 +114,6 @@ export default {
             }
             self.pathchange = self.path
         }).catch(error=>{
-            alert(error)
         })
 
         

@@ -103,7 +103,6 @@ export default {
     beforeMount(){
         let self = this;
         api.search(this.name).then(res=>{
-            console.log(res)
             self.products = res.data.products.reverse()
             self.pages = self.products.length / 50
             for(var i=0;i<self.pages+1;i++){

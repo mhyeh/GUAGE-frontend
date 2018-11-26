@@ -271,7 +271,6 @@ export default {
                     for(var i of list){
                         obj[i] = this.$data[i]
                     }
-                    console.log(obj)
                     let token = localStorage.getItem('token')
                     api.accountUpdate(token,this.account.id,obj).then(res=>{
                          document.body.scrollTop = 0
@@ -337,7 +336,6 @@ export default {
           data.push(t)
         }
         self.orders = data
-        console.log(self.orders)
             }).catch(error=>{
             })
             api.getAsksByID(token,id).then(res=>{

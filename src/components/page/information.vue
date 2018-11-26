@@ -17,11 +17,8 @@ export default {
     beforeMount(){
         let self = this;
         api.getArticleByName(this.path).then(res=>{
-            console.log(res.data.article)
             self.article = res.data.article;
-            console.log(self.article)
         }).catch(error=>{
-            alert(error)
         })
     }
 }

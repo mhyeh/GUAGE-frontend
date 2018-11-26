@@ -428,7 +428,6 @@ export default {
     beforeMount(){
         let self = this
         this.page = 1
-        console.log(this.path)
         api.getProductByType(1).then(res=>{
             self.pointer_pressure = res.data.products.reverse()
             if(self.path == 'pointer_pressure'){

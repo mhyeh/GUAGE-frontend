@@ -295,11 +295,8 @@ export default {
      },
     beforeMount(){
         let self = this;
-        console.log(this.path)
         api.getArticleByClass(9).then(res=>{
-            console.log(res.data.articles)
             for(var i in res.data.articles){
-                console.log(res.data.articles[i])
                 if(res.data.articles[i].type == '關係網頁連結'){
                     self.relation[self.relation.length] = res.data.articles[i]; 
                 }

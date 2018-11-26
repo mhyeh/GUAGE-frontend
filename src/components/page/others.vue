@@ -20,7 +20,6 @@
 export default {
     props: ['path'],
     beforeMounted () {
-        console.log(this.path);
     }
 }
 </script>

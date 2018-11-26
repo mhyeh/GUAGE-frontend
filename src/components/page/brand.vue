@@ -49,7 +49,6 @@ export default {
         api.getArticleByClass(10).then(res=>{
             self.articles = res.data.articles
         }).catch(error=>{
-            alert(error)
         })
     }
 }

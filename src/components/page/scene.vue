@@ -100,9 +100,6 @@ export default {
      },
     beforeMount(){
         let self = this;
-        console.log(this.path)
-        //this.pathchange = this.path;
-        //console.log(pathchange);
         api.getArticleByClass(8).then(res=>{
             for(var i in res.data.articles){
                 if(res.data.articles[i].type=='管路/設備儀表照片'){

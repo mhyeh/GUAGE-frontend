@@ -97,7 +97,6 @@ export default {
     let self = this
     api.getArticle(15).then(res=>{
       self.about = res.data.article.context;
-      console.log(self.about);
     }).catch(error=>{
       alert(error)
     })
@@ -110,9 +109,7 @@ export default {
 
     api.getLastestProduct(5).then(res=>{
       self.products = res.data.products;
-      console.log(self.products);
     }).catch(error=>{
-      alert(error)
     })
   }
 }

@@ -22,22 +22,16 @@ export default {
          'path' (newPath, oldPath) {
              let self = this;
         api.getArticleByName(newPath).then(res=>{
-            console.log(res.data);
             self.article = res.data.article;
         }).catch(error=>{
-            alert(error)
         })
          }
      },
     beforeMount(){
         let self = this;
         api.getArticleByName(this.path).then(res=>{
-            console.log(res.data);
-            console.log(res.data.article)
             self.article = res.data.article;
-            console.log(self.article)
         }).catch(error=>{
-            alert(error)
         })
     }
 }

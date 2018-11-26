@@ -76,18 +76,15 @@ export default {
      },
     beforeMount(){
         let self = this;
-        console.log(this.path)
         this.pathchange = this.path;
         api.getArticleByClass(5).then(res=>{
             self.articles = res.data.articles
         }).catch(error=>{
-            alert(error)
         })
 
         api.getArticleByClass(6).then(res=>{
             self.DM = res.data.articles
         }).catch(error=>{
-            alert(error)
         })
     }
 }

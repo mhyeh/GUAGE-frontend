@@ -96,7 +96,6 @@ export default {
         api.getArticle(this.id).then(res=>{
             self.article = res.data.article
         }).catch(error=>{
-            alert(error)
         })
     }
 }
