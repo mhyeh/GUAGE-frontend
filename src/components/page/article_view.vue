@@ -10,7 +10,7 @@
         <v-flex offset-xs1 xs8>
             <br>
             <v-card>
-            <pdf scr=article.context></pdf>
+            <pdf :src=article.context></pdf>
             </v-card>
         </v-flex>
         <v-flex xs2>

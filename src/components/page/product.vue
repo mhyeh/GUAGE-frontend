@@ -344,7 +344,7 @@
                     <v-layout row>
                         <v-flex v-bind:key=j v-for="j in 5">
                             <v-layout column v-if="(((page-1)*50)+(n-1)*5+(j-1))<newGoods.length">
-                                <v-card-media height=100 width=50 @click="changeRoute(newGoods[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:scr=newGoods[(page-1)*50+(n-1)*5+(j-1)].picture></v-card-media>
+                                <v-card-media height=100 width=50 @click="changeRoute(newGoods[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:src=newGoods[(page-1)*50+(n-1)*5+(j-1)].picture></v-card-media>
                                 <v-card-text>{{newGoods[(page-1)*50+(n-1)*5+(j-1)].name}}</v-card-text>
                             </v-layout> 
                         </v-flex>
