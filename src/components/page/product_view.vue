@@ -15,7 +15,7 @@
                 </center>
                 <v-layout row>
                     <v-flex xs5 offset-xs1>
-                <v-card-media :src=product.picture></v-card-media>
+                <v-card-media v-bind:src=product.picture height=auto-height></v-card-media>
                     </v-flex>
                 <v-flex offset-xs1 xs4>
                 <v-layout column>
@@ -155,7 +155,6 @@ export default {
                 }  
                 self.product['specOption'] = D
             }
-            console.log(loadingTask);
         }).catch(error=>{
             alert(error)
         })

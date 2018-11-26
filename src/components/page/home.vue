@@ -56,7 +56,7 @@
           </v-card>
           <v-card height="200px">
             <v-flex xs12>
-            <v-card-text height="150px">{{about}}</v-card-text>
+            <v-card-text>{{about}}</v-card-text>
             </v-flex>
             <v-flex offset-10xs>
             <v-btn flat ripple small="" @click="changeroute('introduction')">更多</v-btn>
