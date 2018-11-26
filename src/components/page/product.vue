@@ -334,7 +334,7 @@
                 </template>
                 <template slot="items" slot-scope="props">
                 <td class="text-xs-center"> {{props.item.title}} </td>
-                <td class="text-xs-center"><v-btn small>下載</v-btn></td>
+                <td class="text-xs-center"><v-btn small><a href="http://localhost:3000/uploadedFile/abc.jpg" target="_blank" download="abc">下載</a></v-btn></td>
                 </template>
             </v-data-table>
         </v-card>
@@ -354,7 +354,10 @@
             </center>
             <br>
         </v-card>
-
+        <v-card v-else>
+            <center>
+            </center>
+        </v-card>
     </v-container>
 </template>
 

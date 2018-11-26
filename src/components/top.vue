@@ -3,7 +3,7 @@
       <v-layout align-content-center="" column="">
          <v-layout  row="">
             <v-flex xs4>
-              <v-card-media height="60px" @click="changeroute">logo</v-card-media>
+              <v-card-media height="60px" @click="changeroute" src="http://localhost:3000/uploadedFile/logo.jpg"></v-card-media>
             </v-flex>
             <v-flex xs8 offset-xs6>
                 <p><b @click="changeroute">繁體中文</b>/<b>簡體中文</b>/<b>English</b>/<b @click="changeroute2('site_map')">Site Map</b>/<b  @click="changeroute2('relation')">關係網頁連結</b></p>
@@ -11,7 +11,7 @@
          </v-layout>
         
         <v-flex>
-          <v-card-media height="200px" @click="changeroute">picture</v-card-media>
+          <v-card-media  @click="changeroute" src="http://localhost:3000/uploadedFile/ad.jpg" style="height:100px"></v-card-media>
         </v-flex>
         <center>
           <v-flex xs12>

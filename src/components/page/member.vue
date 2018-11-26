@@ -84,30 +84,50 @@
             <v-btn  slot="activator">詳細</v-btn>
             <v-card color="white" class="dialogCard">
                 <br>
-                    <font size=4>
-                        <font size=5>
-                        <v-flex offset-xs5>
-                        <b><p>詳細資料</p></b>
-                        </v-flex>
-                        </font>
-                        <v-layout row>
-                            <v-layout column>
-                     <v-flex xs3 offset-xs1>
-                       <p>商品名稱:{{props.item.prodName}}</p>
-                       <p>商品數量:{{props.item.number}}</p>
-                       <v-flex v-if="props.item.spec.length !=0">
-                         <p>商品規格:</p>
-                         <v-flex  v-bind:key=n v-for="n in props.item.spec.length">
-                         <p>{{n}}.&nbsp;{{props.item.spec[n-1]}}:&nbsp;&nbsp;{{props.item.specOption[n-1]}}</p>
-                         </v-flex>
-                       </v-flex>
-                        </v-flex>
-                            </v-layout>
-                            <v-flex xs8>
-                            <p>流程:</p>
-                            <v-btn large>配件/材料</v-btn>
-                            </v-flex>
-                        </v-layout>
+                <font size=4>
+                    <font size=5>
+                    <v-flex offset-xs5>
+                    <b><p>詳細資料</p></b>
+                    </v-flex>
+                    </font>
+                    <v-layout row>
+                        <v-layout column>
+                                <v-flex xs2 offset-xs1>
+                                  <p>商品名稱:{{props.item.prodName}}</p>
+                                   <p>商品數量:{{props.item.number}}</p>
+                                <v-flex v-if="props.item.spec.length !=0">
+                                    <p>商品規格:</p>
+                                      <v-flex  v-bind:key=n v-for="n in props.item.spec.length">
+                                           <p>{{n}}.&nbsp;{{props.item.spec[n-1]}}:&nbsp;&nbsp;{{props.item.specOption[n-1]}}</p>
+                                      </v-flex>
+                                   </v-flex>
+                                </v-flex>
+                                </v-layout>
+                                <v-flex xs8|md5>
+                                    <p>流程:</p>
+                                    <center>
+                                <v-stepper v-model="props.item.step" vertical alt-labels >
+                                        <v-stepper-step color="blue lighten-2" step="1" >配件/材料
+                                            <small v-if="props.item.step == 1">完成度:{{props.item.stepPer}}%</small>
+                                        </v-stepper-step>
+                                        <v-stepper-step color="blue lighten-2" step="2" >加工
+                                            <small v-if="props.item.step == 2">完成度:{{props.item.stepPer}}%</small>
+                                        </v-stepper-step>
+                                        <v-stepper-step  :rules="[() => false]"  step="3" color = "red" >品管
+                                            <small v-if="props.item.step == 3">完成度:{{props.item.stepPer}}%</small>
+                                        </v-stepper-step>
+                                        <v-stepper-step color="blue lighten-2" step="4" >包裝
+                                            <small v-if="props.item.step == 4">完成度:{{props.item.stepPer}}%</small>
+                                        </v-stepper-step>
+                                        <v-stepper-step color="blue lighten-2" step="5" >已出貨
+                                            <small v-if="props.item.step == 5">完成度:{{props.item.stepPer}}%</small>
+                                        </v-stepper-step>
+                                </v-stepper>
+                                    </center>
+                                </v-flex>
+                                <v-flex offset-(xs1|md1)>
+                                </v-flex>
+                    </v-layout>
                 </font>
              <br>   
             </v-card>
@@ -295,7 +315,21 @@ export default {
           t.specOption = S
           let d = res.data.orders[i].state;
           d = d.split(' ');
-          t.step = d[0];
+          if(d[0] == '配件/材料'){
+              t.stpe = 1;
+          }
+          else if(d[0] == '加工'){
+              t.step = 2;
+          }
+          else if(d[0] == '品管'){
+              t.step = 3;
+          }
+          else if(d[0] == '包裝'){
+              t.step = 4;
+          }
+          else if(d[0] == '出貨中'){
+              t.step = 5;
+          }
           t.stepPer = d[1];
           t.number = res.data.orders[i].number
           t.date = res.data.orders[i].date
@@ -303,6 +337,7 @@ export default {
           data.push(t)
         }
         self.orders = data
+        console.log(self.orders)
             }).catch(error=>{
             })
             api.getAsksByID(token,id).then(res=>{

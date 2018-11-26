@@ -34,7 +34,6 @@ export default {
     },
     methods: {
         toolbar : function (){
-            console.log(this.article)
             if(this.article.classID==4 )
             {
                 return [

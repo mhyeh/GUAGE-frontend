@@ -10,7 +10,7 @@
         </v-layout>
             </v-toolbar-items>
           </v-toolbar>
-          <v-flex xs12 text-xs-center><br>地址: 台北市北投區致遠一路二段109號 電話: 886-2-28235699  傳真: 886-2-28270646<br>亞帝有限公司版權所有</v-flex>
+          <v-flex xs12 text-xs-center><br>地址: 台北市北投區致遠一路二段109號 電話: 886-2-28235699  傳真: 886-2-28270646<br>亞帝國際有限公司版權所有</v-flex>
       </v-layout>
   </v-footer>
 </template>
