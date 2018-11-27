@@ -63,13 +63,15 @@
           </center>
           </v-card>
           <br>
-          <v-card height="30px" align="center" href="https://www.youtube.com/channel/UCecezHA6evN6Zy2p5uaHVpw/videos">youtube</v-card>
+          <a href="https://www.youtube.com/channel/UCecezHA6evN6Zy2p5uaHVpw/videos">
+          <v-img  align="center"  src="http://210.61.46.101:8787/uploadedFile/youtube.jpg"></v-img></a>
           <br>
-          <v-card height="30px" align="center" href="https://www.facebook.com/Reatlantis/?ref=hl">facebook</v-card>
+          <a href="https://www.facebook.com/Reatlantis/?ref=hl">
+          <v-img align="center"  src="http://210.61.46.101:8787/uploadedFile/facebook.jpg"></v-img></a>
           <br>
-          <v-card height="30px" align="center">Line</v-card>
+          <a href="https://line.me/R/ti/p/%40ycx6275q"><v-img align="center" src="http://210.61.46.101:8787/uploadedFile/line.jpg"></v-img></a>
           <br>
-          <v-card height="50px" align="center">網站友好聲明</v-card>
+          <v-card height="50px" align="center" src="http://210.61.46.101:8787/uploadedFile/webFriend.jpg">網站友好聲明</v-card>
         </v-flex>
       </v-layout>
   </v-container>

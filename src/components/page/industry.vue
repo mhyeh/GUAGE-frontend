@@ -20,7 +20,7 @@
     </template>
     <template slot="items" slot-scope="props">
       <td class="text-xs-center"> {{props.item.date}} </td>
-      <td @click="changeRoute(props.item.id)" class="text-xs-center">{{ props.item.title }}</td>
+      <td @click="changeRoute(props.item.id)" class="text-xs-center"><v-btn small>{{ props.item.title }}</v-btn></td>
     </template>
   </v-data-table>
         </v-card>

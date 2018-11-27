@@ -13,7 +13,7 @@
             <br>
             <v-layout row>
             <v-flex xs3  v-bind:key=item.name v-for ="item in products">
-            <v-card-media height="140px" @click="changerouteProduct(item.id)" v-bind:src=item.picture></v-card-media>
+            <v-img contain max-height="140px" @click="changerouteProduct(item.id)" v-bind:src=item.picture></v-img>
             <v-card-text align="center" @click="changerouteProduct(item.id)">{{item.name}}</v-card-text>
             </v-flex>
             </v-layout>
@@ -54,7 +54,7 @@
               <b><font size="4">關於亞帝</font></b>
             </v-card-text>
           </v-card>
-          <v-card height="200px">
+          <v-card>
             <v-flex xs12>
             <v-card-text>{{about}}</v-card-text>
             </v-flex>
@@ -98,13 +98,11 @@ export default {
     api.getArticle(15).then(res=>{
       self.about = res.data.article.context;
     }).catch(error=>{
-      alert(error)
     })
 
     api.getLastestArticle().then(res=>{
       self.articles = res.data.articles;
     }).catch(error=>{
-      alert(error)
     })
 
     api.getLastestProduct(5).then(res=>{
@@ -124,5 +122,10 @@ export default {
 .mid {
     position: relative;
     z-index: 0;
+}
+
+.full {
+  width: 100%;
+  height: auto;
 }
 </style>

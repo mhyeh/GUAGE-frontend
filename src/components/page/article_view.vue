@@ -10,13 +10,16 @@
         <v-flex offset-xs1 xs8>
             <br>
             <v-card>
-            <pdf :src=article.context></pdf>
+            <v-layout column="">
+        <pdf v-for="i in numPages" :key="i" :src="src" :page="i" style="width: 100%"></pdf>
+    </v-layout>
             </v-card>
         </v-flex>
         <v-flex xs2>
           <right></right>
         </v-flex>
     </v-layout>
+    <br>
     <bottom></bottom>
   </v-container>
 </template>
@@ -29,7 +32,9 @@ export default {
     props:['id'],
     data(){
         return{
-            article:null
+            article:null,
+            src: null,
+            numPages: 1
         }
     },
     methods: {
@@ -89,13 +94,22 @@ export default {
             this.$router.push('/home/'+ url)
             document.body.scrollTop = 0
             document.documentElement.scrollTop = 0
+        },
+        loadingTask(url) {
+            return pdf.createLoadingTask(url);
         }
     },
     beforeMount(){
         let self = this;
-        api.getArticle(this.id).then(res=>{
-            self.article = res.data.article
+        api.getArticle(this.id).then(async (res) => {
+            self.article = res.data.article;
+            self.src = this.loadingTask(self.article.context);
+            return self.src;
+        }).then(pdf => {
+            self.numPages = pdf.numPages;
+            console.log(self.numPages);
         }).catch(error=>{
+            console.log(error);
         })
     }
 }

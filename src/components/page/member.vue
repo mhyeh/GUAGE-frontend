@@ -354,8 +354,15 @@ export default {
 </script>
 
 <style>
-.dialogCard{
-    position: relative;
-    z-index:100;
+.dialogCard {
+    position: absolute;
+    z-index:1000;
+    width: 50vw;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 </style>

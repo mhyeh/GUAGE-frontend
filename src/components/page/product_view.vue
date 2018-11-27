@@ -15,7 +15,7 @@
                 </center>
                 <v-layout row>
                     <v-flex xs5 offset-xs1>
-                <v-card-media v-bind:src=product.picture height="200px"></v-card-media>
+                <v-img contain max-height="100px" v-bind:src=product.picture></v-img>
                     </v-flex>
                 <v-flex offset-xs1 xs4>
                 <v-layout column>
@@ -31,7 +31,9 @@
                 </v-flex>
                 </v-layout>
                 <br>
-                <pdf :src=product.introduction></pdf>
+               <v-layout column="">
+                    <pdf v-for="i in numPages" :key="i" :src="src" :page="i" style="width: 100%"></pdf>
+                </v-layout>
             </v-card>
         </v-flex>
         <v-flex xs2>
@@ -65,10 +67,11 @@ export default {
                 picture: null,
                 introduction:null,
                 download:null},
+                src: null,
+             numPages: 1,
             amount:'',
             specSelect:[],
             otherSelect:[],
-            numPages:2,
             toolbar:[{genre:"新品",url:"newGoods"},
                     {genre:"指針式壓力錶",url:"pointer_pressure"},
                     {genre:"類比輸出壓力開關",url:"pressure_switch"},
@@ -125,11 +128,15 @@ export default {
              objList[objList.length] = obj;
              localStorage.setItem('ask',JSON.stringify(objList))
              this.$router.push('/home/shopping')
-         }
+         },
+         loadingTask(url) {
+            return pdf.createLoadingTask(url);
+        }
     },
     beforeMount(){
         let self = this;
-        api.getProduct(this.id).then(res=>{
+        api.getProduct(this.id).then(async (res) => {
+            //console.log(res.data.product)
             self.product = res.data.product
             var d = self.product.spec;
             d = d.split(',')
@@ -152,8 +159,39 @@ export default {
                 }  
                 self.product['specOption'] = D
             }
+            self.src = this.loadingTask(self.product.introduction);
+            return self.src;
+            }).then(pdf => {
+            self.numPages = pdf.numPages;
         }).catch(error=>{
+            console.log(error);
         })
+
+        // api.getProduct(this.id).then(res=>{
+        //     self.product = res.data.product
+        //     var d = self.product.spec;
+        //     d = d.split(',')
+        //     if(d[0]==""){
+        //         self.product['spec'] = []
+        //     }
+        //     else{
+        //         self.product['spec'] = d;
+        //     }
+        //     var D = self.product.specOption;
+        //     D = D.split(',')
+        //     if(D[0]==""){
+        //         self.product['specOption'] = []
+        //     }
+        //     else{
+        //         for(var i in D){
+        //             var t = D[i].split(' ')
+        //             D[i] = t
+        //             D[i][D[i].length] = '其他(自填)'
+        //         }  
+        //         self.product['specOption'] = D
+        //     }
+        // }).catch(error=>{
+        // })
 
     }
 }
