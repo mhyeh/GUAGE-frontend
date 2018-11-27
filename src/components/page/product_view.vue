@@ -25,8 +25,11 @@
                     <v-select attach :items="product['specOption'][n-1]" label="" offset-y light v-model="specSelect[n-1]"></v-select>
                     <v-text-field v-if="specSelect[n-1]=='其他(自填)'" background-color="white" label="" color="black" persistent-hint v-model="otherSelect[n-1]"></v-text-field>
                     </v-flex>
+                     <b><font size=3>備註:</font></b><v-text-field  background-color="white" label="" color="black" persistent-hint v-model="product.message"></v-text-field>
                     <v-btn @click="ask()">加入詢價單</v-btn>
-                    <v-btn><a :href=product.download target="_blank" :download=product.name>型錄下載</a></v-btn>
+                    <center>
+                    <a :href=product.download target="_blank" :download=product.name><v-btn>型錄下載</v-btn></a>
+                    </center>
                 </v-layout>
                 </v-flex>
                 </v-layout>
@@ -68,6 +71,7 @@ export default {
                 introduction:null,
                 download:null},
                 src: null,
+                message: null,
              numPages: 1,
             amount:'',
             specSelect:[],
@@ -105,11 +109,13 @@ export default {
                  specOption:[],
                  picture: null,
                  amount:'',
+                 message: null,
              }
              obj.id=this.product.id
              obj.name=this.product.name
              obj.picture=this.product.picture
              obj.amount = this.amount
+             obj.message = this.product.message
              for(var n=0;n<this.product['spec'].length;n++){
                  if(this.specSelect[n]=='其他(自填)'){
                      obj.spec[obj.spec.length] =  this.product['spec'][n]

@@ -21,7 +21,7 @@
     </template>
     <template slot="items" slot-scope="props">
       <td class="text-xs-center"> {{props.item.name}} </td>
-      <td class="text-xs-center"><v-card-media v-bind:src="props.item.picture"></v-card-media></td>
+      <td class="text-xs-center"><v-img v-bind:src="props.item.picture" contain max-height="100px"></v-img></td>
       <td class="text-xs-center"><v-flex v-bind:key=n v-for="n in props.item.spec.length"><p v-if="props.item.spec[n-1]!== null">{{props.item.spec[n-1]}}:{{props.item.specOption[n-1]}}</p></v-flex></td>
       <td class="text-xs-center"><v-text-field v-model="props.item.amount" class="input-group--focused"></v-text-field></td>
       <td class="text-xs-center"><v-btn small @click="deleteAsk(props.item.number-1)">刪除</v-btn></td>

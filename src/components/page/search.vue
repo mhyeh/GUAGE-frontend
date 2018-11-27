@@ -14,7 +14,7 @@
                     <v-layout row>
                         <v-flex v-bind:key=j v-for="j in 5">
                             <v-layout column v-if="(((page-1)*50)+(n-1)*5+(j-1))<products.length">
-                                <v-card-media height=100 width=50 @click="changeRouteProduct(products[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:scr=products[(page-1)*50+(n-1)*5+(j-1)].picture></v-card-media>
+                                <v-img contain max-height="100px" @click="changeRouteProduct(products[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:src=products[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
                                 <v-card-text>{{products[(page-1)*50+(n-1)*5+(j-1)].name}}</v-card-text>
                             </v-layout> 
                         </v-flex>
