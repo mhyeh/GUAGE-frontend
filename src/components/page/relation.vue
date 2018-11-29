@@ -333,8 +333,8 @@ export default {
                 else if(res.data.articles[i].type == '關聯公協會'){
                     self.association[self.association.length] = res.data.articles[i];
                 }
+                self.pathchange = self.path
             }
-            self.pathchange = self.path
         }).catch(error=>{
         })
     }

@@ -13,8 +13,12 @@
             <br>
             <v-layout row>
             <v-flex xs3  v-bind:key=item.name v-for ="item in products">
-            <v-img contain max-height="140px" @click="changerouteProduct(item.id)" v-bind:src=item.picture></v-img>
-            <v-card-text align="center" @click="changerouteProduct(item.id)">{{item.name}}</v-card-text>
+              <v-card flat>
+                <center>
+                <v-img contain class="pointer" width="120px" height="120px" @click="changerouteProduct(item.id)" v-bind:src=item.picture></v-img>
+                <v-card-text class="pointer" align="center" @click="changerouteProduct(item.id)">{{item.name}}</v-card-text>
+                </center>
+              </v-card>
             </v-flex>
             </v-layout>
           </v-card>
@@ -43,8 +47,8 @@
       </v-tooltip>
     </template>
     <template slot="items" slot-scope="props">
-      <td class="text-xs-center"  @click="changerouteArticle(props.item.id)"> {{props.item.date}} </td>
-      <td class="text-xs-center" @click="changerouteArticle(props.item.id)">{{ props.item.title }}</td>
+      <td class="text-xs-center"  @click="changerouteArticle(props.item.id)"> <p class="pointer">{{props.item.date}} </p></td>
+      <td class="text-xs-center" @click="changerouteArticle(props.item.id)"><p class="pointer">{{ props.item.title }} </p></td>
     </template>
   </v-data-table>
           </v-card>
@@ -128,4 +132,6 @@ export default {
   width: 100%;
   height: auto;
 }
+
+.pointer {cursor: pointer;}
 </style>

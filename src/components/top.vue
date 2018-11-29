@@ -3,15 +3,15 @@
       <v-layout align-content-center="" column="">
          <v-layout  row="">
             <v-flex xs4>
-              <v-img  @click="changeroute" src="http://210.61.46.101:8787/uploadedFile/logo.jpg"></v-img>
+              <v-img  @click="changeroute" src="http://210.61.46.101:8787/uploadedFile/logo.jpg" class="pointer"></v-img>
             </v-flex>
             <v-flex xs8 offset-xs6>
-                <p><b @click="changeroute">繁體中文</b>/<b @click="changeroute2('site_map')">Site Map</b>/<b  @click="changeroute2('relation')">關係網頁連結</b></p>
+                <font size="4"><p class="pointer"><b @click="changeroute">繁體中文</b>/<b @click="changeroute2('site_map')">Site Map</b>/<b  @click="changeroute2('relation')">關係網頁連結</b></p></font>
             </v-flex>
          </v-layout>
         
         <v-flex>
-          <v-img  @click="changeroute" src="http://210.61.46.101:8787/uploadedFile/ad.jpg"></v-img>
+          <v-img class="pointer" @click="changeroute" src="http://210.61.46.101:8787/uploadedFile/ad.jpg"></v-img>
         </v-flex>
         <center>
           <v-flex xs12>
@@ -317,5 +317,7 @@ export default {
   min-height: 50px;
   z-index: 10;
 }
+
+.pointer {cursor: pointer;}
 
 </style>

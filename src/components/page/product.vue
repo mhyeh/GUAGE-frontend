@@ -7,8 +7,10 @@
                     <v-layout row>
                         <v-flex v-bind:key=j v-for="j in 5">
                             <v-layout column v-if="(((page-1)*50)+(n-1)*5+(j-1))<pointer_pressure.length">
-                                <v-img contain max-height="100px" @click="changeRoute(pointer_pressure[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:scr=pointer_pressure[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
-                                <v-card-text>{{pointer_pressure[(page-1)*50+(n-1)*5+(j-1)].name}}</v-card-text>
+                                <v-card flat>
+                                    <v-img class="pointer" contain height="150px" width="150px" @click="changeRoute(pointer_pressure[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:src=pointer_pressure[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
+                                    <v-card-text>{{pointer_pressure[(page-1)*50+(n-1)*5+(j-1)].name}}</v-card-text>
+                                </v-card>
                             </v-layout> 
                         </v-flex>
                     </v-layout>
@@ -24,7 +26,7 @@
                     <v-layout row>
                         <v-flex v-bind:key=j v-for="j in 5">
                             <v-layout column v-if="(((page-1)*50)+(n-1)*5+(j-1))<pressure_switch.length">
-                                <v-img contain max-height="100px" @click="changeRoute(pressure_switch[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:scr=pressure_switch[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
+                                <v-img class="pointer" contain height="150px" width="150px" @click="changeRoute(pressure_switch[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:src=pressure_switch[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
                                 <v-card-text>{{pressure_switch[(page-1)*50+(n-1)*5+(j-1)].name}}</v-card-text>
                             </v-layout> 
                         </v-flex>
@@ -41,7 +43,7 @@
                     <v-layout row>
                         <v-flex v-bind:key=j v-for="j in 5">
                             <v-layout column v-if="(((page-1)*50)+(n-1)*5+(j-1))<pressure_transmitter.length">
-                                <v-img contain max-height="100px" @click="changeRoute(pressure_transmitter[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:scr=pressure_transmitter[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
+                                <v-img class="pointer" contain height="150px" width="150px" @click="changeRoute(pressure_transmitter[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:src=pressure_transmitter[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
                                 <v-card-text>{{pressure_transmitter[(page-1)*50+(n-1)*5+(j-1)].name}}</v-card-text>
                             </v-layout> 
                         </v-flex>
@@ -58,7 +60,7 @@
                     <v-layout row>
                         <v-flex v-bind:key=j v-for="j in 5">
                             <v-layout column v-if="(((page-1)*50)+(n-1)*5+(j-1))<transmitter.length">
-                                <v-img contain max-height="100px" @click="changeRoute(transmitter[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:scr=transmitter[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
+                                <v-img class="pointer" contain height="150px" width="150px" @click="changeRoute(transmitter[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:src=transmitter[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
                                 <v-card-text>{{transmitter[(page-1)*50+(n-1)*5+(j-1)].name}}</v-card-text>
                             </v-layout> 
                         </v-flex>
@@ -75,7 +77,7 @@
                     <v-layout row>
                         <v-flex v-bind:key=j v-for="j in 5">
                             <v-layout column v-if="(((page-1)*50)+(n-1)*5+(j-1))<digit_pressure.length">
-                                <v-img contain max-height="100px" @click="changeRoute(digit_pressure[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:scr=digit_pressure[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
+                                <v-img class="pointer" contain height="150px" width="150px" @click="changeRoute(digit_pressure[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:src=digit_pressure[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
                                 <v-card-text>{{digit_pressure[(page-1)*50+(n-1)*5+(j-1)].name}}</v-card-text>
                             </v-layout> 
                         </v-flex>
@@ -92,7 +94,7 @@
                     <v-layout row>
                         <v-flex v-bind:key=j v-for="j in 5">
                             <v-layout column v-if="(((page-1)*50)+(n-1)*5+(j-1))<pointer_thermometer.length">
-                                <v-img contain max-height="100px" @click="changeRoute(pointer_thermometer[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:scr=pointer_thermometer[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
+                                <v-img class="pointer" contain height="150px" width="150px" @click="changeRoute(pointer_thermometer[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:src=pointer_thermometer[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
                                 <v-card-text>{{pointer_thermometer[(page-1)*50+(n-1)*5+(j-1)].name}}</v-card-text>
                             </v-layout> 
                         </v-flex>
@@ -109,7 +111,7 @@
                     <v-layout row>
                         <v-flex v-bind:key=j v-for="j in 5">
                             <v-layout column v-if="(((page-1)*50)+(n-1)*5+(j-1))<temperature_switch.length">
-                                <v-img contain max-height="100px" @click="changeRoute(temperature_switch[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:scr=temperature_switch[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
+                                <v-img class="pointer" contain height="150px" width="150px" @click="changeRoute(temperature_switch[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:src=temperature_switch[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
                                 <v-card-text>{{temperature_switch[(page-1)*50+(n-1)*5+(j-1)].name}}</v-card-text>
                             </v-layout> 
                         </v-flex>
@@ -126,7 +128,7 @@
                     <v-layout row>
                         <v-flex v-bind:key=j v-for="j in 5">
                             <v-layout column v-if="(((page-1)*50)+(n-1)*5+(j-1))<digit_thermometer.length">
-                                <v-img contain max-height="100px" @click="changeRoute(digit_thermometer[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:scr=digit_thermometer[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
+                                <v-img class="pointer" contain height="150px" width="150px" @click="changeRoute(digit_thermometer[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:src=digit_thermometer[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
                                 <v-card-text>{{digit_thermometer[(page-1)*50+(n-1)*5+(j-1)].name}}</v-card-text>
                             </v-layout> 
                         </v-flex>
@@ -143,7 +145,7 @@
                     <v-layout row>
                         <v-flex v-bind:key=j v-for="j in 5">
                             <v-layout column v-if="(((page-1)*50)+(n-1)*5+(j-1))<TC_dipole.length">
-                                <v-img contain max-height="100px" @click="changeRoute(TC_dipole[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:scr=TC_dipole[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
+                                <v-img class="pointer" contain height="150px" width="150px" @click="changeRoute(TC_dipole[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:src=TC_dipole[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
                                 <v-card-text>{{TC_dipole[(page-1)*50+(n-1)*5+(j-1)].name}}</v-card-text>
                             </v-layout> 
                         </v-flex>
@@ -160,7 +162,7 @@
                     <v-layout row>
                         <v-flex v-bind:key=j v-for="j in 5">
                             <v-layout column v-if="(((page-1)*50)+(n-1)*5+(j-1))<RTD_resistance.length">
-                                <v-img contain max-height="100px" @click="changeRoute(RTD_resistance[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:scr=RTD_resistance[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
+                                <v-img class="pointer" contain height="150px" width="150px" @click="changeRoute(RTD_resistance[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:src=RTD_resistance[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
                                 <v-card-text>{{RTD_resistance[(page-1)*50+(n-1)*5+(j-1)].name}}</v-card-text>
                             </v-layout> 
                         </v-flex>
@@ -177,7 +179,7 @@
                     <v-layout row>
                         <v-flex v-bind:key=j v-for="j in 5">
                             <v-layout column v-if="(((page-1)*50)+(n-1)*5+(j-1))<glass_thermometer.length">
-                                <v-img contain max-height="100px" @click="changeRoute(glass_thermometer[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:scr=glass_thermometer[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
+                                <v-img class="pointer" contain height="150px" width="150px" @click="changeRoute(glass_thermometer[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:src=glass_thermometer[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
                                 <v-card-text>{{glass_thermometer[(page-1)*50+(n-1)*5+(j-1)].name}}</v-card-text>
                             </v-layout> 
                         </v-flex>
@@ -194,7 +196,7 @@
                     <v-layout row>
                         <v-flex v-bind:key=j v-for="j in 5">
                             <v-layout column v-if="(((page-1)*50)+(n-1)*5+(j-1))<septum.length">
-                                <v-img contain max-height="100px" @click="changeRoute(septum[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:scr=septum[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
+                                <v-img class="pointer" contain height="150px" width="150px" @click="changeRoute(septum[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:src=septum[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
                                 <v-card-text>{{septum[(page-1)*50+(n-1)*5+(j-1)].name}}</v-card-text>
                             </v-layout> 
                         </v-flex>
@@ -211,7 +213,7 @@
                     <v-layout row>
                         <v-flex v-bind:key=j v-for="j in 5">
                             <v-layout column v-if="(((page-1)*50)+(n-1)*5+(j-1))<vertify.length">
-                                <v-img contain max-height="100px" @click="changeRoute(vertify[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:scr=vertify[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
+                                <v-img class="pointer" contain height="150px" width="150px" @click="changeRoute(vertify[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:src=vertify[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
                                 <v-card-text>{{vertify[(page-1)*50+(n-1)*5+(j-1)].name}}</v-card-text>
                             </v-layout> 
                         </v-flex>
@@ -228,7 +230,7 @@
                     <v-layout row>
                         <v-flex v-bind:key=j v-for="j in 5">
                             <v-layout column v-if="(((page-1)*50)+(n-1)*5+(j-1))<accessory.length">
-                                <v-img contain max-height="100px" @click="changeRoute(accessory[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:scr=accessory[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
+                                <v-img class="pointer" contain height="150px" width="150px" @click="changeRoute(accessory[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:src=accessory[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
                                 <v-card-text>{{accessory[(page-1)*50+(n-1)*5+(j-1)].name}}</v-card-text>
                             </v-layout> 
                         </v-flex>
@@ -245,7 +247,7 @@
                     <v-layout row>
                         <v-flex v-bind:key=j v-for="j in 5">
                             <v-layout column v-if="(((page-1)*50)+(n-1)*5+(j-1))<FRL.length">
-                                <v-img contain max-height="100px" @click="changeRoute(FRL[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:scr=FRL[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
+                                <v-img class="pointer" contain height="150px" width="150px" @click="changeRoute(FRL[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:src=FRL[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
                                 <v-card-text>{{FRL[(page-1)*50+(n-1)*5+(j-1)].name}}</v-card-text>
                             </v-layout> 
                         </v-flex>
@@ -262,7 +264,7 @@
                     <v-layout row>
                         <v-flex v-bind:key=j v-for="j in 5">
                             <v-layout column v-if="(((page-1)*50)+(n-1)*5+(j-1))<valve.length">
-                                <v-img contain max-height="100px" @click="changeRoute(valve[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:scr=valve[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
+                                <v-img class="pointer" contain height="150px" width="150px" @click="changeRoute(valve[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:src=valve[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
                                 <v-card-text>{{valve[(page-1)*50+(n-1)*5+(j-1)].name}}</v-card-text>
                             </v-layout> 
                         </v-flex>
@@ -279,7 +281,7 @@
                     <v-layout row>
                         <v-flex v-bind:key=j v-for="j in 5">
                             <v-layout column v-if="(((page-1)*50)+(n-1)*5+(j-1))<liquid.length">
-                                <v-img contain max-height="100px" @click="changeRoute(liquid[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:scr=liquid[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
+                                <v-img class="pointer" contain height="150px" width="150px" @click="changeRoute(liquid[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:src=liquid[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
                                 <v-card-text>{{liquid[(page-1)*50+(n-1)*5+(j-1)].name}}</v-card-text>
                             </v-layout> 
                         </v-flex>
@@ -296,7 +298,7 @@
                     <v-layout row>
                         <v-flex v-bind:key=j v-for="j in 5">
                             <v-layout column v-if="(((page-1)*50)+(n-1)*5+(j-1))<flow.length">
-                                <v-img contain max-height="100px" @click="changeRoute(flow[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:scr=flow[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
+                                <v-img class="pointer" contain height="150px" width="150px" @click="changeRoute(flow[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:src=flow[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
                                 <v-card-text>{{flow[(page-1)*50+(n-1)*5+(j-1)].name}}</v-card-text>
                             </v-layout> 
                         </v-flex>
@@ -313,7 +315,7 @@
                     <v-layout row>
                         <v-flex v-bind:key=j v-for="j in 5">
                             <v-layout column v-if="(((page-1)*50)+(n-1)*5+(j-1))<adjuster.length">
-                                <v-img contain max-height="100px" @click="changeRoute(adjuster[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:scr=adjuster[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
+                                <v-img class="pointer" contain height="150px" width="150px" @click="changeRoute(adjuster[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:src=adjuster[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
                                 <v-card-text>{{adjuster[(page-1)*50+(n-1)*5+(j-1)].name}}</v-card-text>
                             </v-layout> 
                         </v-flex>
@@ -330,7 +332,7 @@
                     <v-layout row>
                         <v-flex v-bind:key=j v-for="j in 5">
                             <v-layout column v-if="(((page-1)*50)+(n-1)*5+(j-1))<load_transmitter.length">
-                                <v-img contain max-height="100px" @click="changeRoute(load_transmitter[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:scr=load_transmitter[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
+                                <v-img class="pointer" contain height="150px" width="150px" @click="changeRoute(load_transmitter[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:src=load_transmitter[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
                                 <v-card-text>{{load_transmitter[(page-1)*50+(n-1)*5+(j-1)].name}}</v-card-text>
                             </v-layout> 
                         </v-flex>
@@ -365,7 +367,7 @@
                     <v-layout row>
                         <v-flex v-bind:key=j v-for="j in 5">
                             <v-layout column v-if="(((page-1)*50)+(n-1)*5+(j-1))<newGoods.length">
-                                <v-img contain max-height="100px" @click="changeRoute(newGoods[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:src=newGoods[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
+                                <v-img class="pointer" contain height="150px" width="150px" @click="changeRoute(newGoods[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:src=newGoods[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
                                 <v-card-text>{{newGoods[(page-1)*50+(n-1)*5+(j-1)].name}}</v-card-text>
                             </v-layout> 
                         </v-flex>

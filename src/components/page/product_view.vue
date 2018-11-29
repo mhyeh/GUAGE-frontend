@@ -15,7 +15,9 @@
                 </center>
                 <v-layout row>
                     <v-flex xs5 offset-xs1>
-                        <v-img contain max-height="100px" :src="product.picture"></v-img>
+                        <center>
+                        <v-img contain width="200px" height="200px" :src="product.picture"></v-img>
+                        </center>
                     </v-flex>
                 <v-flex offset-xs1 xs4>
                 <v-layout column>

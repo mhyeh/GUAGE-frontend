@@ -111,8 +111,8 @@ export default {
                 else if(res.data.articles[i].type=='文字圖案'){
                     self.picture[self.picture.length] = res.data.articles[i];
                 }
+                this.pathchange = this.path;
             }
-            self.pathchange = self.path
         }).catch(error=>{
         })
     }

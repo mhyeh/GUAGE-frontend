@@ -58,5 +58,5 @@ export default {
 
 
 <style>
-
+.pointer {cursor: pointer;}
 </style>
