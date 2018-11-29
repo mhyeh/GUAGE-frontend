@@ -63,13 +63,13 @@
           </center>
           </v-card>
           <br>
-          <a href="https://www.youtube.com/channel/UCecezHA6evN6Zy2p5uaHVpw/videos">
+          <a href="https://www.youtube.com/channel/UCecezHA6evN6Zy2p5uaHVpw/videos" target="_blank">
           <v-img  align="center"  src="http://210.61.46.101:8787/uploadedFile/youtube.jpg"></v-img></a>
           <br>
-          <a href="https://www.facebook.com/Reatlantis/?ref=hl">
-          <v-img align="center"  src="http://210.61.46.101:8787/uploadedFile/facebook.jpg"></v-img></a>
+          <a href="https://www.facebook.com/Reatlantis/?ref=hl" target="_blank">
+          <v-img align="center"  src="http://210.61.46.101:8787/uploadedFile/facebook.jpg" ></v-img></a>
           <br>
-          <a href="https://line.me/R/ti/p/%40ycx6275q"><v-img align="center" src="http://210.61.46.101:8787/uploadedFile/line.jpg"></v-img></a>
+          <a href="https://line.me/R/ti/p/%40ycx6275q" target="_blank"><v-img align="center" src="http://210.61.46.101:8787/uploadedFile/line.jpg"></v-img></a>
           <br>
           <v-card height="50px" align="center" src="http://210.61.46.101:8787/uploadedFile/webFriend.jpg">網站友好聲明</v-card>
         </v-flex>

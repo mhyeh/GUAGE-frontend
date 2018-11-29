@@ -15,7 +15,7 @@
                 </center>
                 <v-layout row>
                     <v-flex xs5 offset-xs1>
-                <v-img contain max-height="100px" v-bind:src=product.picture></v-img>
+                        <v-img contain max-height="100px" :src="product.picture"></v-img>
                     </v-flex>
                 <v-flex offset-xs1 xs4>
                 <v-layout column>
@@ -67,12 +67,13 @@ export default {
                 spec:[],
                 specOption:[],
                 visible:'',
-                picture: null,
+                picture: '',
                 introduction:null,
-                download:null},
-                src: null,
-                message: null,
-             numPages: 1,
+                download:null
+            },
+            src: null,
+            message: null,
+            numPages: 1,
             amount:'',
             specSelect:[],
             otherSelect:[],
@@ -141,7 +142,7 @@ export default {
     },
     beforeMount(){
         let self = this;
-        api.getProduct(this.id).then(async (res) => {
+        api.getProduct(this.id).then((res) => {
             //console.log(res.data.product)
             self.product = res.data.product
             var d = self.product.spec;
@@ -166,8 +167,9 @@ export default {
                 self.product['specOption'] = D
             }
             self.src = this.loadingTask(self.product.introduction);
+            console.log(self.product)
             return self.src;
-            }).then(pdf => {
+        }).then(pdf => {
             self.numPages = pdf.numPages;
         }).catch(error=>{
             console.log(error);
