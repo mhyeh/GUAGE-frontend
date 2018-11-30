@@ -60,7 +60,7 @@
           </v-card>
           <v-card>
             <v-flex xs12>
-            <v-card-text>{{about}}</v-card-text>
+            <v-card-text><p v-html="about"></p></v-card-text>
             </v-flex>
             <v-flex offset-10xs>
             <v-btn flat ripple small="" @click="changeroute('introduction')">更多</v-btn>
@@ -101,6 +101,8 @@ export default {
     let self = this
     api.getArticle(15).then(res=>{
       self.about = res.data.article.context;
+      self.about = self.about.replace(/\n|\r\n/g,"<br/>")
+      console.log(self.about)
     }).catch(error=>{
     })
 

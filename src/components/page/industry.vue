@@ -19,8 +19,8 @@
       </v-tooltip>
     </template>
     <template slot="items" slot-scope="props">
-      <td class="text-xs-center"> {{props.item.date}} </td>
-      <td @click="changeRoute(props.item.id)" class="text-xs-center"><v-btn small>{{ props.item.title }}</v-btn></td>
+      <td class="text-xs-center"> <p class="pointer">{{props.item.date}}</p> </td>
+      <td @click="changeRoute(props.item.id)" class="text-xs-center"><p class="pointer">{{ props.item.title }}</p></td>
     </template>
   </v-data-table>
         </v-card>
@@ -41,8 +41,8 @@
       </v-tooltip>
     </template>
     <template slot="items" slot-scope="props">
-      <td class="text-xs-center"> {{props.item.date}} </td>
-      <td class="text-xs-center" @click="changeRoute(props.item.id)">{{ props.item.title }}</td>
+      <td class="text-xs-center"> <p class="pointer">{{props.item.date}}</p> </td>
+      <td class="text-xs-center" @click="changeRoute(props.item.id)"><p class="pointer">{{ props.item.title }}</p></td>
     </template>
   </v-data-table>
         </v-card>
@@ -63,8 +63,8 @@
       </v-tooltip>
     </template>
     <template slot="items" slot-scope="props">
-      <td class="text-xs-center"> {{props.item.date}} </td>
-      <td class="text-xs-center" @click="changeRoute(props.item.id)">{{ props.item.title }}</td>
+      <td class="text-xs-center"> <p class="pointer">{{props.item.date}}</p> </td>
+      <td class="text-xs-center" @click="changeRoute(props.item.id)"><p class="pointer">{{ props.item.title }}</p></td>
     </template>
   </v-data-table>
         </v-card>
@@ -123,5 +123,5 @@ export default {
 
 
 <style>
-
+.pointer {cursor: pointer;}
 </style>

@@ -34,9 +34,7 @@ export default {
                 return self.src;
             }).then(pdf => {
                 self.numPages = pdf.numPages;
-                console.log(self.numPages);
             }).catch(error=>{
-                console.log(error);
             })
          }
      },
