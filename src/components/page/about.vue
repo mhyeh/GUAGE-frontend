@@ -17,7 +17,7 @@ export default {
          return {
              article:null,
              src: null,
-             numPages: 1
+             numPages: 1,
          }
      },
      methods: {

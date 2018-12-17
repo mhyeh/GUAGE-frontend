@@ -373,7 +373,7 @@
                         </v-flex>
                     </v-layout>
                 </v-flex>
-               <v-pagination v-model="page" :length="pages"></v-pagination>
+               <v-pagination v-model="page" :length="pages" dark></v-pagination>
             </center>
             <br>
         </v-card>

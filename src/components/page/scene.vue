@@ -20,7 +20,7 @@
     </template>
     <template slot="items" slot-scope="props">
       <td class="text-xs-center"> {{props.item.date}} </td>
-      <td @click="changeRoute(props.item.id)" class="text-xs-center">{{ props.item.title }}</td>
+      <td @click="changeRoute(props.item.id)" class="text-xs-center"><p class="pointer">{{ props.item.title }}</p></td>
     </template>
   </v-data-table>
         </v-card>
@@ -42,7 +42,7 @@
     </template>
     <template slot="items" slot-scope="props">
       <td class="text-xs-center"> {{props.item.date}} </td>
-      <td class="text-xs-center"><a v-bind:href="props.item.context">{{ props.item.title }}</a></td>
+      <td class="text-xs-center"><a v-bind:href="props.item.context" target="_blank"><font size=4>{{ props.item.title }}</font></a></td>
     </template>
   </v-data-table>
         </v-card>
@@ -64,7 +64,7 @@
     </template>
     <template slot="items" slot-scope="props">
       <td class="text-xs-center"> {{props.item.date}} </td>
-      <td class="text-xs-center" @click="changeRoute(props.item.id)">{{ props.item.title }}</td>
+      <td class="text-xs-center" @click="changeRoute(props.item.id)"><p class="pointer">{{ props.item.title }}</p></td>
     </template>
   </v-data-table>
         </v-card>
@@ -107,6 +107,7 @@ export default {
                 }
                 else if(res.data.articles[i].type=='影片'){
                     self.film[self.film.length] = res.data.articles[i];
+                    console.log(self.film)
                 }
                 else if(res.data.articles[i].type=='文字圖案'){
                     self.picture[self.picture.length] = res.data.articles[i];
@@ -121,5 +122,9 @@ export default {
 
 
 <style>
-
+a {
+    text-decoration:none;
+    color :black
+}
+.pointer {cursor: pointer;}
 </style>

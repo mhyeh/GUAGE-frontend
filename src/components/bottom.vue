@@ -1,11 +1,11 @@
 <template>
   <v-footer height="300px">
       <v-layout row wrap="" justify-center="">
-         <v-toolbar  floating flat>
+         <v-toolbar flat>
             <v-toolbar-items flat>
-        <v-layout row >
+        <v-layout row>
             <v-flex v-bind:key=item.genre v-for="item in toolbar">
-                <v-btn class="btnbottom" right flat  block @click="changeroute(item.url)" slot="activator"><b>{{ item.genre }}</b></v-btn>
+                <v-btn flat block @click="changeroute(item.url)" slot="activator"><b>{{ item.genre }}</b></v-btn>
             </v-flex>
         </v-layout>
             </v-toolbar-items>
@@ -44,8 +44,4 @@ export default {
 </script>
 
 <style>
-.btnbottom{
-   min-height: 50px;
-   min-width: 100px;
-}
 </style>

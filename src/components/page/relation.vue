@@ -19,7 +19,7 @@
       </v-tooltip>
     </template>
     <template slot="items" slot-scope="props">
-     <td class="text-xs-center"><a v-bind:href="props.item.context" ><font size=4>{{ props.item.title }}</font></a></td>
+     <td class="text-xs-center"><a v-bind:href="props.item.context" target="_blank"><font size=4>{{ props.item.title }}</font></a></td>
     </template>
   </v-data-table>
         </v-card>
@@ -40,7 +40,7 @@
       </v-tooltip>
     </template>
     <template slot="items" slot-scope="props">
-     <td class="text-xs-center"><a v-bind:href="props.item.context"><font size=4>{{ props.item.title }}</font></a></td>
+     <td class="text-xs-center"><a v-bind:href="props.item.context">target="_blank"<font size=4>{{ props.item.title }}</font></a></td>
     </template>
   </v-data-table>
         </v-card>
@@ -61,7 +61,7 @@
       </v-tooltip>
     </template>
     <template slot="items" slot-scope="props">
-    <td class="text-xs-center"><a v-bind:href="props.item.context"><font size=4>{{ props.item.title }}</font></a></td>
+    <td class="text-xs-center"><a v-bind:href="props.item.context">target="_blank"<font size=4>{{ props.item.title }}</font></a></td>
     </template>
   </v-data-table>
         </v-card>
@@ -82,7 +82,7 @@
       </v-tooltip>
     </template>
     <template slot="items" slot-scope="props">
-     <td class="text-xs-center"><a v-bind:href="props.item.context"><font size=4>{{ props.item.title }}</font></a></td>
+     <td class="text-xs-center"><a v-bind:href="props.item.context">target="_blank"<font size=4>{{ props.item.title }}</font></a></td>
     </template>
   </v-data-table>
         </v-card>
@@ -103,7 +103,7 @@
       </v-tooltip>
     </template>
     <template slot="items" slot-scope="props">
-      <td class="text-xs-center"><a v-bind:href="props.item.context"><font size=4>{{ props.item.title }}</font></a></td>
+      <td class="text-xs-center"><a v-bind:href="props.item.context">target="_blank"<font size=4>{{ props.item.title }}</font></a></td>
     </template>
   </v-data-table>
         </v-card>
@@ -124,7 +124,7 @@
       </v-tooltip>
     </template>
     <template slot="items" slot-scope="props">
-     <td class="text-xs-center"><a v-bind:href="props.item.context"><font size=4>{{ props.item.title }}</font></a></td>
+     <td class="text-xs-center"><a v-bind:href="props.item.context">target="_blank"<font size=4>{{ props.item.title }}</font></a></td>
     </template>
   </v-data-table>
         </v-card>
@@ -145,7 +145,7 @@
       </v-tooltip>
     </template>
     <template slot="items" slot-scope="props">
-     <td class="text-xs-center"><a v-bind:href="props.item.context"><font size=4>{{ props.item.title }}</font></a></td>
+     <td class="text-xs-center"><a v-bind:href="props.item.context">target="_blank"<font size=4>{{ props.item.title }}</font></a></td>
     </template>
   </v-data-table>
         </v-card>
@@ -166,7 +166,7 @@
       </v-tooltip>
     </template>
     <template slot="items" slot-scope="props">
-      <td class="text-xs-center"><a v-bind:href="props.item.context"><font size=4>{{ props.item.title }}</font></a></td>
+      <td class="text-xs-center"><a v-bind:href="props.item.context">target="_blank"<font size=4>{{ props.item.title }}</font></a></td>
     </template>
   </v-data-table>
         </v-card>
@@ -187,7 +187,7 @@
       </v-tooltip>
     </template>
     <template slot="items" slot-scope="props">
-    <td class="text-xs-center"><a v-bind:href="props.item.context"><font size=4>{{ props.item.title }}</font></a></td>
+    <td class="text-xs-center"><a v-bind:href="props.item.context">target="_blank"<font size=4>{{ props.item.title }}</font></a></td>
     </template>
   </v-data-table>
         </v-card>
@@ -208,7 +208,7 @@
       </v-tooltip>
     </template>
     <template slot="items" slot-scope="props">
-     <td class="text-xs-center"><a v-bind:href="props.item.context"><font size=4>{{ props.item.title }}</font></a></td>
+     <td class="text-xs-center"><a v-bind:href="props.item.context">target="_blank"<font size=4>{{ props.item.title }}</font></a></td>
     </template>
   </v-data-table>
         </v-card>
@@ -229,7 +229,7 @@
       </v-tooltip>
     </template>
     <template slot="items" slot-scope="props">
-      <td class="text-xs-center"><a v-bind:href="props.item.context"><font size=4>{{ props.item.title }}</font></a></td>
+      <td class="text-xs-center"><a v-bind:href="props.item.context">target="_blank"<font size=4>{{ props.item.title }}</font></a></td>
     </template>
   </v-data-table>
         </v-card>
@@ -250,7 +250,7 @@
       </v-tooltip>
     </template>
     <template slot="items" slot-scope="props">
-     <td class="text-xs-center"><a v-bind:href="props.item.context"><font size=4>{{ props.item.title }}</font></a></td>
+     <td class="text-xs-center"><a v-bind:href="props.item.context" target="_blank"><font size=4>{{ props.item.title }}</font></a></td>
     </template>
   </v-data-table>
         </v-card>
@@ -296,6 +296,7 @@ export default {
     beforeMount(){
         let self = this;
         api.getArticleByClass(9).then(res=>{
+          console.log(res)
             for(var i in res.data.articles){
                 if(res.data.articles[i].type == '關係網頁連結'){
                     self.relation[self.relation.length] = res.data.articles[i]; 
@@ -334,6 +335,7 @@ export default {
                     self.association[self.association.length] = res.data.articles[i];
                 }
                 self.pathchange = self.path
+                
             }
         }).catch(error=>{
         })

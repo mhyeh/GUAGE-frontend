@@ -1,8 +1,8 @@
 <template>
-  <v-container fluid="">
-    <top class="top"></top>
-    <v-layout class="mid" row="">
-        <v-flex xs8 offset-xs1>
+  <v-container>
+      <top class="top"></top>
+    <v-layout class="mid" row>
+        <v-flex>
           <br>
           <v-card  @click="changeroute('new')" align="center" color="yellow accent-1">
             <v-card-text align="center" >
@@ -11,13 +11,11 @@
           </v-card>
           <v-card>
             <br>
-            <v-layout row>
-            <v-flex xs3  v-bind:key=item.name v-for ="item in products">
-              <v-card flat>
-                <center>
-                <v-img contain class="pointer" width="120px" height="120px" @click="changerouteProduct(item.id)" v-bind:src=item.picture></v-img>
-                <v-card-text class="pointer" align="center" @click="changerouteProduct(item.id)">{{item.name}}</v-card-text>
-                </center>
+            <v-layout align-end justify-space-around wrap>
+            <v-flex v-bind:key=item.name v-for ="item in products">
+              <v-card flat max-width="120px" >
+                <v-img contain class="pointer" max-width="100px" max-height="120px" @click="changerouteProduct(item.id)" v-bind:src=item.picture></v-img>
+                <v-card-text class="pointer" @click="changerouteProduct(item.id)">{{item.name}}</v-card-text>
               </v-card>
             </v-flex>
             </v-layout>
@@ -59,15 +57,13 @@
             </v-card-text>
           </v-card>
           <v-card>
-            <v-flex xs12>
+            <v-flex>
             <v-card-text><p v-html="about"></p></v-card-text>
-            </v-flex>
-            <v-flex offset-10xs>
-            <v-btn flat ripple small="" @click="changeroute('introduction')">更多</v-btn>
+            <v-btn flat ripple small="" @click="changeroute('introduction')">更多</v-btn>            
             </v-flex>
           </v-card>
         </v-flex>
-        <v-flex xs2>
+        <v-flex>
           <right></right>
         </v-flex>
     </v-layout>

@@ -1,7 +1,7 @@
 <template>
   <v-container>
       <v-layout class="right" align-content-center="">
-        <v-flex align-start="">
+        <v-flex align-start>
           <v-card height="170px">
             <center>
             <v-card color="light-blue lighten-5"><v-card-text><b>產品搜尋</b></v-card-text></v-card>
