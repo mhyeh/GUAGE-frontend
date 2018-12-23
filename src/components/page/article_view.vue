@@ -1,21 +1,24 @@
 <template>
     <v-container>
     <top class="top"></top>
-    <v-layout class="mid" row="">
-        <v-flex xs2>
-         <v-layout column>
-              <v-btn color="light-blue lighten-5" block ripple=""  align="center" v-bind:key=item.genre v-for="item in toolbar()" @click="changeroute(item.url)"><b>{{ item.genre }}</b></v-btn>
-      </v-layout>
+    <v-layout class="mid" row>
+        <v-flex>
+            <v-layout column class="hidden-md-and-down">
+              <v-btn color="light-blue lighten-5" block ripple v-bind:key=item.genre v-for="item in toolbar()" @click="changeroute(item.url)"><b>{{ item.genre }}</b></v-btn>
+            </v-layout>
         </v-flex>
-        <v-flex offset-xs1 xs8>
+        <v-flex  offset-xs1>
             <br>
             <v-card>
-            <v-layout column="">
-        <pdf v-for="i in numPages" :key="i" :src="src" :page="i" style="width: 100%"></pdf>
-    </v-layout>
+                <center>
+                    <v-card-text><b><font size=6>{{article.title}}</font></b></v-card-text>
+                </center>
+                <v-layout column="">
+                    <pdf v-for="i in numPages" :key="i" :src="src" :page="i" style="width: 100%"></pdf>
+                </v-layout>
             </v-card>
         </v-flex>
-        <v-flex xs2>
+        <v-flex class="hidden-md-and-down">
           <right></right>
         </v-flex>
     </v-layout>

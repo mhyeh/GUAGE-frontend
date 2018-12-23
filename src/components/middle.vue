@@ -54,6 +54,9 @@
         <v-card v-else-if="path=='pointer_pressure'||path=='pressure_switch'||path=='pressure_transmitter'||path=='transmitter'||path=='digit_pressure'||path=='pointer_thermometer'||path=='temperature_switch'||path=='digit_thermometer'||path=='TC_dipole'||path=='RTD_resistance'||path=='glass_thermometer'||path=='septum'||path=='vertify'||path=='accessory'||path=='FRL'||path=='valve'||path=='liquid'||path=='flow'||path=='adjuster'||path=='load_transmitter'||path=='newGoods' || path=='download'">
             <product :path="path"></product>
         </v-card>
+        <v-card v-else-if="path=='login'">
+            <login></login>
+        </v-card>
     </v-container>
 </template>
 

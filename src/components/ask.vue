@@ -104,6 +104,7 @@ export default {
             data.message = this.message
 
             let token = localStorage.getItem('token')
+            console.log(token)
             api.sendAsk(token,data).then(res=>{
                 alert("發送成功");
                 document.body.scrollTop = 0

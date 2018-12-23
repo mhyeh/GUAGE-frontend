@@ -16,7 +16,7 @@ export default {
      data(){
          return {
              article:null,
-             src: null,
+             src: '',
              numPages: 1,
          }
      },
@@ -28,7 +28,7 @@ export default {
      watch: {
          'path' (newPath, oldPath) {
              let self = this;
-            api.getArticleByName(newPath).then(async (res) => {
+            api.getArticleByName(newPath).then((res) => {
                 self.article = res.data.article;
                 self.src = this.loadingTask(self.article.context);
                 return self.src;

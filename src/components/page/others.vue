@@ -1,14 +1,14 @@
 <template>
     <v-container>
     <top class="top"></top>
-    <v-layout class="mid"  row="">
-        <v-flex xs2>
+    <v-layout row>
+        <v-flex class="hidden-md-and-down">
             <left :path="path"></left>
         </v-flex>
-        <v-flex xs8>
+        <v-flex>
             <middle :path="path"></middle>
         </v-flex>
-        <v-flex xs2>
+        <v-flex class="hidden-md-and-down">
           <right></right>
         </v-flex>
     </v-layout>

@@ -53,13 +53,11 @@
           </v-card>
            </center>
           <v-flex xs10 offset-xs1>
-          <v-text-field label="email" class="input-group--focused" v-model="email"></v-text-field>
+            <v-text-field label="名稱" class="input-group--focused" v-model="name"></v-text-field>
+            <v-text-field label="email" class="input-group--focused" v-model="email"></v-text-field>
           </v-flex>
-          <center>
+          <center> 
           <v-btn align="center" small ripple @click="subscribe()">訂閱</v-btn>
-          </center>
-          <center>
-          <v-btn align="center" small ripple @click="subscribe()">取消訂閱</v-btn>
           </center>
           </v-card>
           <br>
@@ -71,7 +69,7 @@
           <br>
           <a href="https://line.me/R/ti/p/%40ycx6275q" target="_blank"><v-img align="center" src="http://210.61.46.101:8787/uploadedFile/line.jpg"></v-img></a>
           <br>
-          <v-card height="50px" align="center" src="http://210.61.46.101:8787/uploadedFile/webFriend.jpg">網站友好聲明</v-card>
+          <v-img align="center"  src="http://210.61.46.101:8787/uploadedFile/webFriend.jpg" ></v-img>
         </v-flex>
       </v-layout>
   </v-container>
@@ -90,6 +88,7 @@ export default {
       email:'',
       loginFlag:false,
       account:[],
+      name:'',
     }
   },
   methods: {
@@ -120,6 +119,22 @@ export default {
       this.$router.push('/')
     },
     subscribe(){
+      if(this.name=='' || this.email==''){
+        alert('有資料未填')
+      }
+      else{
+        let data={
+        type: 'in',
+        mail: this.email,
+        name: this.name
+      }
+        api.subscribe(data).then(()=>{
+          alert('訂閱成功')
+          window.location.reload()
+        }).catch(error=>{
+
+        })
+      }
     },
     unsubscribe(){
 

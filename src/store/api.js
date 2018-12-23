@@ -62,5 +62,9 @@ export default {
   },
   getOrderByAccount: function (token, acID) {
     return client.get('/order/account/' + acID, {headers: {'Auth': token}})
+  },
+  subscribe: function (data) {
+    console.log(data)
+    return client.post('/newsletter', data)
   }
 }

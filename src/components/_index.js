@@ -24,6 +24,7 @@ import Information from './page/information.vue'
 import Member from './page/member.vue'
 import Product from './page/product.vue'
 import Search from './page/search.vue'
+import Login from './page/login.vue'
 
 export default {
   Home: Home,
@@ -51,5 +52,6 @@ export default {
   Information: Information,
   Member: Member,
   Product: Product,
-  Search: Search
+  Search: Search,
+  Login: Login
 }

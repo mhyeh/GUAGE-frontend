@@ -13,8 +13,8 @@
             <br>
             <v-layout align-end justify-space-around wrap>
             <v-flex v-bind:key=item.name v-for ="item in products">
-              <v-card flat max-width="120px" >
-                <v-img contain class="pointer" max-width="100px" max-height="120px" @click="changerouteProduct(item.id)" v-bind:src=item.picture></v-img>
+              <v-card flat max-width="120px">
+                <v-img contain class="pointer" width="120px" max-height="120px" @click="changerouteProduct(item.id)" v-bind:src=item.picture></v-img>
                 <v-card-text class="pointer" @click="changerouteProduct(item.id)">{{item.name}}</v-card-text>
               </v-card>
             </v-flex>
@@ -63,7 +63,7 @@
             </v-flex>
           </v-card>
         </v-flex>
-        <v-flex>
+        <v-flex class="hidden-md-and-down">
           <right></right>
         </v-flex>
     </v-layout>
@@ -119,6 +119,7 @@ export default {
 .top {
     position: relative;
     z-index: 100;
+    
 }
 
 .mid {
@@ -126,10 +127,13 @@ export default {
     z-index: 0;
 }
 
-.full {
-  width: 100%;
-  height: auto;
+
+
+.card{
+  max-width: 1000px;
 }
+
+
 
 .pointer {cursor: pointer;}
 </style>
