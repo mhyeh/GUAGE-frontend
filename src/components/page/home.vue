@@ -4,12 +4,12 @@
     <v-layout class="mid" row>
         <v-flex>
           <br>
-          <v-card  @click="changeroute('new')" align="center" color="yellow accent-1">
+          <v-card class="cardMid" @click="changeroute('new')" align="center" color="yellow accent-1">
             <v-card-text align="center" >
               <b><font size="4">最新商品</font></b>
             </v-card-text>
           </v-card>
-          <v-card>
+          <v-card class="cardMid">
             <br>
             <v-layout align-end justify-space-around wrap>
             <v-flex v-bind:key=item.name v-for ="item in products">
@@ -21,12 +21,12 @@
             </v-layout>
           </v-card>
           <br>
-          <v-card @click="changeroute('news')" class="bottom" align="center" color="yellow accent-1">
+          <v-card class="cardMid" @click="changeroute('news')" align="center" color="yellow accent-1">
             <v-card-text align="center">
               <b><font size="4" >最新消息</font></b>
             </v-card-text>
           </v-card>
-          <v-card align="center">
+          <v-card align="center" class="cardMid">
             <v-data-table
             color= "white"
     :headers="headers"
@@ -51,12 +51,12 @@
   </v-data-table>
           </v-card>
           <br>
-          <v-card @click="changeroute('about')" align="center" color="yellow accent-1">
+          <v-card class="cardMid" @click="changeroute('about')" align="center" color="yellow accent-1">
             <v-card-text align="center">
               <b><font size="4">關於亞帝</font></b>
             </v-card-text>
           </v-card>
-          <v-card>
+          <v-card class="cardMid">
             <v-flex>
             <v-card-text><p v-html="about"></p></v-card-text>
             <v-btn flat ripple small="" @click="changeroute('introduction')">更多</v-btn>            
@@ -129,9 +129,10 @@ export default {
 
 
 
-.card{
-  max-width: 1000px;
+.cardMid{
+  max-width: 950px;
 }
+
 
 
 

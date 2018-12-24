@@ -3,58 +3,58 @@
         <center>
         <v-card-text align="center" v-bind:key=item.title v-for="item in bar" v-if="item.path===path"><b><font size="6">{{item.title}}</font></b></v-card-text>
         </center>
-        <v-card align="center" v-if="path=='recommend'" >
+        <v-card class="cardMid" align="center" v-if="path=='recommend'" >
             <recommend></recommend>
         </v-card>
-        <v-card align="center" v-else-if="path=='message'">
+        <v-card class="cardMid" align="center" v-else-if="path=='message'">
             <message></message>
         </v-card>
-        <v-card align="center" v-else-if="path=='site_map'">
+        <v-card class="cardMid" align="center" v-else-if="path=='site_map'">
             <sitemap></sitemap>
         </v-card>
-        <v-card align="center" v-else-if="path=='shopping'">
+        <v-card class="cardMid" align="center" v-else-if="path=='shopping'">
             <ask></ask>
         </v-card>
-        <v-card v-else-if="path=='introduction' || path=='history' || path=='envirnoment' || path=='records' || path=='license' || path=='product_report' || path=='report'">
+        <v-card class="cardMid" v-else-if="path=='introduction' || path=='history' || path=='envirnoment' || path=='records' || path=='license' || path=='product_report' || path=='report'">
             <about :path="path"></about>
         </v-card>
-        <v-card v-else-if="path=='register'">
+        <v-card class="cardMid" v-else-if="path=='register'">
             <register :path="path"></register>
         </v-card>
-        <v-card v-else-if="path=='construction' || path=='manufacture' || path=='electricity'">
+        <v-card class="cardMid" v-else-if="path=='construction' || path=='manufacture' || path=='electricity'">
             <industry :path="path"></industry>
         </v-card>
-        <v-card v-else-if="path=='lastest' || path=='DM'">
+        <v-card class="cardMid" v-else-if="path=='lastest' || path=='DM'">
             <news :path="path"></news>
         </v-card>
-        <v-card v-else-if="path=='product_view'">
+        <v-card class="cardMid" v-else-if="path=='product_view'">
             <productview></productview>
         </v-card>
-        <v-card v-else-if="path=='article_view'">
+        <v-card class="cardMid" v-else-if="path=='article_view'">
             <articleview></articleview>
         </v-card>
-        <v-card v-else-if="path=='instruction' || path=='FAQ' || path=='note' || path=='theory' || path=='skill' || path=='conversion' || path=='data' || path=='t_link' || path=='issue'">
+        <v-card class="cardMid" v-else-if="path=='instruction' || path=='FAQ' || path=='note' || path=='theory' || path=='skill' || path=='conversion' || path=='data' || path=='t_link' || path=='issue'">
             <technology :path="path"></technology>
         </v-card>
-        <v-card v-else-if="path=='equipment' || path=='film' || path=='picture'">
+        <v-card class="cardMid" v-else-if="path=='equipment' || path=='film' || path=='picture'">
             <scene :path="path"></scene>
         </v-card>
-        <v-card v-else-if="path=='relation' || path=='friend' || path=='national' || path=='develop'|| path=='governoment'||path=='source'||path=='commerce'||path=='work'||path=='rest'||path=='life'||path=='enterprise'||path=='association'">
+        <v-card class="cardMid" v-else-if="path=='relation' || path=='friend' || path=='national' || path=='develop'|| path=='governoment'||path=='source'||path=='commerce'||path=='work'||path=='rest'||path=='life'||path=='enterprise'||path=='association'">
             <relation :path="path"></relation>
         </v-card>
-        <v-card v-else-if="path=='brands'">
+        <v-card class="cardMid" v-else-if="path=='brands'">
             <brand></brand>
         </v-card>
-        <v-card v-else-if="path=='information'">
+        <v-card class="cardMid" v-else-if="path=='information'">
             <information :path="path"></information>
         </v-card>
-        <v-card v-else-if="path=='member' || path=='order' || path=='memberAsk' || path=='update'">
+        <v-card class="cardMid" v-else-if="path=='member' || path=='order' || path=='memberAsk' || path=='update'">
             <member :path="path"></member>
         </v-card>
-        <v-card v-else-if="path=='pointer_pressure'||path=='pressure_switch'||path=='pressure_transmitter'||path=='transmitter'||path=='digit_pressure'||path=='pointer_thermometer'||path=='temperature_switch'||path=='digit_thermometer'||path=='TC_dipole'||path=='RTD_resistance'||path=='glass_thermometer'||path=='septum'||path=='vertify'||path=='accessory'||path=='FRL'||path=='valve'||path=='liquid'||path=='flow'||path=='adjuster'||path=='load_transmitter'||path=='newGoods' || path=='download'">
+        <v-card class="cardMid" v-else-if="path=='pointer_pressure'||path=='pressure_switch'||path=='pressure_transmitter'||path=='transmitter'||path=='digit_pressure'||path=='pointer_thermometer'||path=='temperature_switch'||path=='digit_thermometer'||path=='TC_dipole'||path=='RTD_resistance'||path=='glass_thermometer'||path=='septum'||path=='vertify'||path=='accessory'||path=='FRL'||path=='valve'||path=='liquid'||path=='flow'||path=='adjuster'||path=='load_transmitter'||path=='newGoods' || path=='download'">
             <product :path="path"></product>
         </v-card>
-        <v-card v-else-if="path=='login'">
+        <v-card class="cardMid" v-else-if="path=='login'">
             <login></login>
         </v-card>
     </v-container>
@@ -145,3 +145,9 @@ export default {
     },
 }
 </script>
+<style>
+.cardMid{
+  max-width: 950px;
+}
+</style>
+

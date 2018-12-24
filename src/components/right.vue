@@ -155,7 +155,6 @@ export default {
 <style>
 .right {
     position: relative;
-    min-width: 100px;
-    max-width: 150px;
+    min-width: 150px;
 }
 </style>
