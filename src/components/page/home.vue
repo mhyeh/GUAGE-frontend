@@ -64,7 +64,7 @@
           </v-card>
         </v-flex>
         <v-flex class="hidden-md-and-down">
-          <right></right>
+            <right></right>
         </v-flex>
     </v-layout>
     <bottom></bottom>
