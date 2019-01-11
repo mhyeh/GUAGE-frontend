@@ -1,6 +1,6 @@
 <template>
-  <v-container justify-start>
-      <v-layout class="right">
+  <v-container class="right">
+      <v-layout >
         <v-flex>
           <v-card height="170px">
             <center>
@@ -154,6 +154,7 @@ export default {
 
 <style>
 .right {
-    width: 150px;
+    
+    width: 200px;
 }
 </style>

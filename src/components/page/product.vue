@@ -1,5 +1,5 @@
 <template>
-    <v-container>
+    <v-container class="productMid">
         <v-card v-if="path=='pointer_pressure'">
             <br>
             <center>
@@ -799,5 +799,8 @@ export default {
 .picSize{
     position:relative;
     vertical-align: middle;
+}
+.productMid{
+    max-width: 700px;
 }
 </style>

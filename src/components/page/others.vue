@@ -6,7 +6,7 @@
             <left :path="path"></left>
         </v-flex>
         <v-flex>
-            <middle :path="path"></middle>
+            <middle :path="path" class="mid"></middle>
         </v-flex>
         <v-flex class="hidden-md-and-down">
           <right></right>

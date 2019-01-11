@@ -1,13 +1,13 @@
 <template>
     <v-container>
     <top class="top"></top>
-    <v-layout class="mid" row="">
-        <v-flex>
+    <v-layout  row >
+        <v-flex class="left">
             <v-layout column class="hidden-md-and-down">
-                <v-btn  class="left" color="light-blue lighten-5" block  ripple=""  align="center" v-bind:key=item.genre v-for="item in toolbar" @click="changeroute(item.url)"><b>{{ item.genre }}</b></v-btn>
+                <v-btn  class="leftBtn" color="light-blue lighten-5" block  ripple=""  v-bind:key=item.genre v-for="item in toolbar" @click="changeroute(item.url)"><b>{{ item.genre }}</b></v-btn>
             </v-layout>
         </v-flex>
-        <v-flex>
+        <v-flex class="mid" offset-xs1>
             <br>
             <v-card>
                 <center>
@@ -16,7 +16,7 @@
                 <v-layout row wrap>
                     <v-flex offset-xs1>
                         <v-card flat>
-                            <v-img contain  width="200px" max-height="200px" :src="product.picture"></v-img>
+                            <v-img contain  width="250px" max-height="300px" :src="product.picture"></v-img>
                         </v-card>
                     </v-flex>
                     <v-flex>
@@ -184,11 +184,21 @@ export default {
 <style>
 .top {
     position: relative;
-    z-index: 100;
+    z-index: 2;
 }
 
 .mid {
     position: relative;
-    z-index: 0;
+    z-index: 1;
+    margin:0px auto;
+    width: 100%;
 }
+
+.leftBtn{
+    z-index:0;
+    min-height: 20px;
+    max-width:150px;
+    
+}
+
 </style>

@@ -1,8 +1,10 @@
 <template>
   <v-footer height="200px">
-      <v-layout row wrap justify-center>
+
+      <v-layout >
+            <center class="Bottom">
          <v-toolbar flat>
-            <v-toolbar-items flat>
+            <v-toolbar-items>
               <v-layout row class="hidden-md-and-down">
                   <v-flex v-bind:key=item.genre v-for="item in toolbar">
                       <v-btn flat block @click="changeroute(item.url)" slot="activator" class="btnBottom"><b>{{ item.genre }}</b></v-btn>
@@ -10,8 +12,10 @@
               </v-layout>
             </v-toolbar-items>
           </v-toolbar>
-          <v-flex xs12 text-xs-center><br>地址: 台北市北投區致遠一路二段109號 電話: 886-2-28235699  傳真: 886-2-28270646<br>亞帝國際有限公司版權所有<br>Copyright © 2018 Gauge Inc. All rights reserved</v-flex>
+          <v-flex><br>地址: 台北市北投區致遠一路二段109號 電話: 886-2-28235699  傳真: 886-2-28270646<br>亞帝國際有限公司版權所有<br>Copyright © 2018 Gauge Inc. All rights reserved</v-flex>
+              </center>
       </v-layout>
+
   </v-footer>
 </template>
 
@@ -46,5 +50,9 @@ export default {
 <style>
 .btnBottom{ 
   min-height: 50px;
+}
+
+.Bottom{
+  margin:0px auto;
 }
 </style>

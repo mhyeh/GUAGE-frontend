@@ -19,31 +19,25 @@ export default new Router({
       path: '/home/:path',
       name: 'home',
       component: Others,
-      props: true,
-      // children: [
-      //   {
-      //     path: '/',
-
-      //   }
-      // ]
+      props: true
     },
     {
-      path:'/article_view/:id',
-      name:'article_view',
+      path: '/article_view/:id',
+      name: 'article_view',
       component: Articleview,
-      props:true,
+      props: true
     },
     {
-      path:'/product_view/:id',
-      name:'product_view',
+      path: '/product_view/:id',
+      name: 'product_view',
       component: ProductView,
-      props:true,
+      props: true
     },
     {
-      path:'/search/:name',
-      name:'search',
+      path: '/search/:name',
+      name: 'search',
       component: Search,
-      props:true,
+      props: true
     }
   ]
 })

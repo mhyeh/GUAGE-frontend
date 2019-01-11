@@ -1,9 +1,8 @@
 <template>
   <v-container align-center justify-center>
       <top class="top"></top>
-    <v-layout class="mid" row>
-      <center>
-        <v-flex>
+    <v-layout  row>
+        <v-flex class="mid">
           <br>
           <v-card class="cardMid" @click="changeroute('new')"  color="yellow accent-1">
             <v-card-text align="center" >
@@ -66,11 +65,11 @@
             </v-flex>
           </v-card>
         </v-flex>
-         </center>
-        <v-flex class="hidden-md-and-down">
-            <right></right>
-        </v-flex>
-     
+         
+         <v-flex class="right">
+            <right ></right>
+         </v-flex>
+         
     </v-layout>
     <bottom></bottom>
   </v-container>
@@ -130,6 +129,14 @@ export default {
 .mid {
     position: relative;
     z-index: 0;
+    max-width: 950px;
+    margin:0px auto;
+}
+
+.right{
+  position: relative;
+    z-index: 0;
+    max-width: 200px;
 }
 
 
@@ -137,6 +144,7 @@ export default {
 .cardMid{
   width: 100%
 }
+
 
 
 
