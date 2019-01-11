@@ -78,12 +78,12 @@ export default {
         let self = this;
         this.pathchange = this.path;
         api.getArticleByClass(5).then(res=>{
-            self.articles = res.data.articles
+            self.articles = res.data.articles.reverse()
         }).catch(error=>{
         })
 
         api.getArticleByClass(6).then(res=>{
-            self.DM = res.data.articles
+            self.DM = res.data.articles.reverse()
         }).catch(error=>{
         })
     }

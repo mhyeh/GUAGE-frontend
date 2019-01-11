@@ -1,6 +1,6 @@
 <template>
   <v-container>
-      <v-layout align-content-center="" column="">
+      <v-layout align-content-center="" column="" justify-center="">
          <v-layout row>
             <v-flex xs3 sm3 md3 lg2>
               <v-img  @click="changeroute" contain src="http://210.61.46.101:8787/uploadedFile/logo.jpg" class="logo"></v-img>
@@ -9,29 +9,33 @@
                 <font size="4"><p class="pointer"><b class="hidden-lg-and-up" @click="changeroute2('login')" v-if="loginFlag==false">登入/</b><b v-else-if="loginFlag==true" class="hidden-lg-and-up" @click="changeroute2('member')">會員專區/</b><b @click="changeroute2('site_map')">Site Map</b><b class="hidden-sm-and-down" @click="changeroute2('relation')">/關係網頁連結</b></p></font>
             </v-layout>
          </v-layout>
-        <v-flex>
-          <v-img class="ad" @click="changeroute" src="http://210.61.46.101:8787/uploadedFile/ad.jpg"></v-img>
-        </v-flex>
+        <v-layout justify-center>
+          <v-img class="ad" contain @click="changeroute" src="http://210.61.46.101:8787/uploadedFile/ad.jpg"></v-img>
+        </v-layout>
           <v-flex class="hidden-md-and-down">
           <v-card flat>
-          <v-toolbar flat color="white">
-            <v-toolbar-items >
+          
+        
+         
               <v-layout row justify-center>
-                  <v-flex v-bind:key=item.genre v-for="item in toolbar">
+                  <div v-bind:key=item.genre v-for="item in toolbar">
                     <v-menu dark open-on-hover transition="scale-transition" attach  offset-y >
                       <v-btn class="btntop" color="grey lighten-3"  @click="changeroute2(item.url)" slot="activator"><b>{{ item.genre }}</b></v-btn>
-                      <v-list v-if="item.sub_genre !== undefined">
-                        <v-list-tile v-bind:key=sub.genre v-for="sub in item.sub_genre">
-                          <v-btn  block  ripple flat @click="changeroute2(sub.url)">
-                            <v-list-tile-title><font size="4">{{sub.genre}}</font></v-list-tile-title>
-                          </v-btn>
-                        </v-list-tile>
-                      </v-list>
+                      <div v-if="item.sub_genre !== undefined">
+                        <v-list>
+                          <v-list-tile v-bind:key=sub.genre v-for="sub in item.sub_genre">
+                            <v-btn  block  ripple flat @click="changeroute2(sub.url)">
+                              <v-list-tile-title><font size="4">{{sub.genre}}</font></v-list-tile-title>
+                            </v-btn>
+                          </v-list-tile>
+                        </v-list>
+                      </div>
                     </v-menu>
-                  </v-flex>
+                  </div>
               </v-layout>
-            </v-toolbar-items>
-          </v-toolbar>
+     
+      
+          
           </v-card>
           </v-flex>
           <v-flex class="hidden-lg-and-up">
@@ -353,17 +357,15 @@ export default {
 
 .btntop{ 
   position: relative;
-  min-height: 50px;
+  width: 100%;
   z-index: 10;
 }
 
 .ad{
-  max-width: 1040px;
   cursor: pointer;
 }
 
 .logo{
-  max-width: 175px;
   cursor: pointer;
 }
 

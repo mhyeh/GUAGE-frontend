@@ -1,22 +1,25 @@
 <template>
-  <v-container>
+  <v-container align-center justify-center>
       <top class="top"></top>
     <v-layout class="mid" row>
+      <center>
         <v-flex>
           <br>
-          <v-card class="cardMid" @click="changeroute('new')" align="center" color="yellow accent-1">
+          <v-card class="cardMid" @click="changeroute('new')"  color="yellow accent-1">
             <v-card-text align="center" >
               <b><font size="4">最新商品</font></b>
             </v-card-text>
           </v-card>
           <v-card class="cardMid">
             <br>
-            <v-layout align-end justify-space-around wrap>
-            <v-flex v-bind:key=item.name v-for ="item in products">
+            <v-layout align-end  wrap>
+            <v-flex v-bind:key=item.name v-for ="item in products" >
+              <center>
               <v-card flat max-width="120px">
                 <v-img contain class="pointer" width="120px" max-height="120px" @click="changerouteProduct(item.id)" v-bind:src=item.picture></v-img>
                 <v-card-text class="pointer" @click="changerouteProduct(item.id)">{{item.name}}</v-card-text>
               </v-card>
+              </center>
             </v-flex>
             </v-layout>
           </v-card>
@@ -63,9 +66,11 @@
             </v-flex>
           </v-card>
         </v-flex>
+         </center>
         <v-flex class="hidden-md-and-down">
             <right></right>
         </v-flex>
+     
     </v-layout>
     <bottom></bottom>
   </v-container>
@@ -130,7 +135,7 @@ export default {
 
 
 .cardMid{
-  max-width: 950px;
+  width: 100%
 }
 
 

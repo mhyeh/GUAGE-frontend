@@ -95,7 +95,7 @@ export default {
                     {genre:"隔膜",url:"septum"},
                     {genre:"校驗儀器",url:"vertify"},
                     {genre:"配件",url: "accessory"},
-                    {genre:"型錄下載",url:"download"}],
+                    {genre:"型錄總覽下載",url:"download"}],
         }
     },
     methods: {

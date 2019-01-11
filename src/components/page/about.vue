@@ -27,7 +27,8 @@ export default {
      },
      watch: {
          'path' (newPath, oldPath) {
-             let self = this;
+            let self = this;
+            this.numPages = 1;
             api.getArticleByName(newPath).then((res) => {
                 self.article = res.data.article;
                 self.src = this.loadingTask(self.article.context);

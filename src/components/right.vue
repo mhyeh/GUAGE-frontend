@@ -1,7 +1,7 @@
 <template>
-  <v-container>
-      <v-layout class="right" justify-start>
-        <v-flex align-start>
+  <v-container justify-start>
+      <v-layout class="right">
+        <v-flex>
           <v-card height="170px">
             <center>
             <v-card color="light-blue lighten-5"><v-card-text><b>產品搜尋</b></v-card-text></v-card>
@@ -154,7 +154,6 @@ export default {
 
 <style>
 .right {
-    position: relative;
     width: 150px;
 }
 </style>

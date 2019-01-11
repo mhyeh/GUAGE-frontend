@@ -18,7 +18,7 @@
     "v-calendar": "^0.9.7",
     "vue": "^2.5.2",
     "vue-datatable": "^1.0.4",
-    "vue-pdf": "^3.3.1",
+    "vue-pdf": "^4.0.5",
     "vue-router": "^3.0.1",
     "vuetify": "^1.3.9"
   },
