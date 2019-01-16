@@ -17,7 +17,7 @@ export default {
          return {
              article:null,
              src: '',
-             numPages: 1,
+             numPages: undefined,
          }
      },
      methods: {
@@ -43,11 +43,11 @@ export default {
         let self = this;
         api.getArticleByName(this.path).then(async (res) => {
             self.article = res.data.article;
+            console.log(self.article.context)
             self.src = this.loadingTask(self.article.context);
             return self.src;
         }).then(pdf => {
             self.numPages = pdf.numPages;
-            console.log(self.numPages);
         }).catch(error=>{
             console.log(error);
         })
@@ -56,6 +56,6 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 .pointer {cursor: pointer;}
 </style>

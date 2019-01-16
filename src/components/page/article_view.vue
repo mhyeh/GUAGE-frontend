@@ -14,7 +14,7 @@
                     <v-card-text><b><font size=6>{{article.title}}</font></b></v-card-text>
                 </center>
                 <v-layout column="">
-                    <pdf v-for="i in numPages" :key="i" :src="src" :page="i" style="width: 100%"></pdf>
+                    <pdf v-for="i in numPages" :key="i" :src="src" :page="i" style="display: inline-block; width: 100%"></pdf>
                 </v-layout>
             </v-card>
         </v-flex>
@@ -33,11 +33,14 @@ import pdf from 'vue-pdf'
 
 export default {
     props:['id'],
+     components:{
+        pdf,
+    },
     data(){
         return{
             article:null,
-            src: null,
-            numPages: 1
+            src: '',
+            numPages: undefined
         }
     },
     methods: {
@@ -104,13 +107,13 @@ export default {
     },
     beforeMount(){
         let self = this;
-        api.getArticle(this.id).then(async (res) => {
+        api.getArticle(this.id).then( (res) => {
             self.article = res.data.article;
+            console.log(self.article.context)
             self.src = this.loadingTask(self.article.context);
             return self.src;
         }).then(pdf => {
             self.numPages = pdf.numPages;
-            console.log(self.numPages);
         }).catch(error=>{
             console.log(error);
         })
@@ -118,7 +121,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .top {
     position: relative;
     z-index: 100;

@@ -7,7 +7,7 @@
                 <v-btn  class="leftBtn" color="light-blue lighten-5" block  ripple=""  v-bind:key=item.genre v-for="item in toolbar" @click="changeroute(item.url)"><b>{{ item.genre }}</b></v-btn>
             </v-layout>
         </v-flex>
-        <v-flex class="mid" offset-xs1>
+        <v-flex>
             <br>
             <v-card>
                 <center>
@@ -74,9 +74,9 @@ export default {
                 introduction:null,
                 download:null
             },
-            src: null,
+            src: '',
             message: null,
-            numPages: 1,
+            numPages: undefined,
             amount:'',
             specSelect:[],
             otherSelect:[],
@@ -169,19 +169,19 @@ export default {
                 }  
                 self.product['specOption'] = D
             }
+            console.log(self.product.introduction)
             self.src = this.loadingTask(self.product.introduction);
-            console.log(self.product)
             return self.src;
         }).then(pdf => {
             self.numPages = pdf.numPages;
         }).catch(error=>{
-            console.log(error);
+            //console.log(error);
         })
     }
 }
 </script>
 
-<style>
+<style scoped>
 .top {
     position: relative;
     z-index: 2;
@@ -190,7 +190,6 @@ export default {
 .mid {
     position: relative;
     z-index: 1;
-    margin:0px auto;
     width: 100%;
 }
 

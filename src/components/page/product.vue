@@ -792,7 +792,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .cardSize{
     min-height: 250px;
 }

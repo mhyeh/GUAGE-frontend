@@ -154,7 +154,6 @@ export default {
 
 <style>
 .right {
-    
     width: 200px;
 }
 </style>

@@ -65,8 +65,7 @@
             </v-flex>
           </v-card>
         </v-flex>
-         
-         <v-flex class="right">
+         <v-flex class="right hidden-md-and-down" >
             <right ></right>
          </v-flex>
          
@@ -119,7 +118,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .top {
     position: relative;
     z-index: 100;

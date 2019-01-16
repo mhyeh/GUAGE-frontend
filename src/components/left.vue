@@ -134,7 +134,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .left{
     z-index:0;
     min-height: 20px;
