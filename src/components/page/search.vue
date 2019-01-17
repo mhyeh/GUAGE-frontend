@@ -1,29 +1,41 @@
 <template>
     <v-container>
     <top class="top"></top>
-    <v-layout class="mid" row="">
-        <v-flex xs2>
+    <v-layout row>
+        <v-flex class="hidden-md-and-down">
         <v-layout column="">
               <v-btn  class="left" color="light-blue lighten-5" block  ripple=""  align="center" v-bind:key=item.genre v-for="item in toolbar" @click="changeroute(item.url)"><b>{{ item.genre }}</b></v-btn>
       </v-layout>
         </v-flex>
-        <v-flex offset-xs1 xs8>
-             <v-card-text align="center"><b><font size="6">搜尋結果:{{name}}</font></b></v-card-text>
+        <v-flex class="mid">
             <center>
-                <v-flex v-bind:key=n v-for="n in 10">
-                    <v-layout row>
-                        <v-flex v-bind:key=j v-for="j in 5">
-                            <v-layout column v-if="(((page-1)*50)+(n-1)*5+(j-1))<products.length">
-                                <v-img contain max-height="100px" @click="changeRouteProduct(products[(page-1)*50+(n-1)*5+(j-1)].id)" v-bind:src=products[(page-1)*50+(n-1)*5+(j-1)].picture></v-img>
-                                <v-card-text>{{products[(page-1)*50+(n-1)*5+(j-1)].name}}</v-card-text>
-                            </v-layout> 
-                        </v-flex>
-                    </v-layout>
+                <v-card-text align="center"><b><font size="6">搜尋結果:{{name}}</font></b></v-card-text>
+            <v-card class="cardMid">
+                <br> 
+                <v-flex class="productMid">
+                <v-card>
+            <center>
+                <v-layout row wrap>
+                    <v-flex v-bind:key=n v-for="n in 50">
+                            <v-flex v-if="(((page-1)*50)+n-1)<products.length">
+                                <v-card flat max-width="120px" class="cardSize">
+                                    <v-layout column>
+                                        <v-img class="pointer" contain  width="120px" max-height="120px" @click="changeRoute(products[((page-1)*50)+n-1].id)" v-bind:src=products[((page-1)*50)+n-1].picture></v-img>
+                                        <v-card-text>{{products[((page-1)*50)+n-1].name}}</v-card-text>
+                                    </v-layout>
+                                </v-card>
+                            </v-flex>               
+                    </v-flex>
+                </v-layout>
+               <v-pagination dark v-model="page" :length="pages"></v-pagination>
+            </center>
+                </v-card>
+                <br>
                 </v-flex>
-               <v-pagination v-model="page" :length="pages"></v-pagination>
+            </v-card>
             </center>
         </v-flex>
-        <v-flex xs2>
+        <v-flex class="hidden-md-and-down">
           <right></right>
         </v-flex>
     </v-layout>
@@ -33,14 +45,10 @@
 
 <script>
 import api from '../../store/api'
-import pdf from 'vue-pdf'
 
 
 export default {
     props:['name'],
-    components:{
-        pdf,
-    },
     data(){
         return{
             page:1,
@@ -121,14 +129,33 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .top {
     position: relative;
-    z-index: 100;
+    z-index: 2;
 }
 
 .mid {
     position: relative;
-    z-index: 0;
+    z-index: 1;
+}
+
+.left{
+    z-index:0;
+    min-height: 20px;
+    max-width:150px;
+}
+.cardSize{
+    min-height: 250px;
+}
+.picSize{
+    position:relative;
+    vertical-align: middle;
+}
+.productMid{
+    max-width: 700px;
+}
+.cardMid{
+  max-width: 950px;
 }
 </style>
