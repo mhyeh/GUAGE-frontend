@@ -80,60 +80,54 @@
     <template slot="items" slot-scope="props">
       <td class="text-xs-center">{{ props.item.prodName }}</td>
       <td class="text-xs-center">{{ props.item.date }}</td>
-      <td ><v-dialog width="800"  color="#FFFFFF" class="dialogTop">
-            <v-btn  slot="activator">詳細</v-btn>
-            <v-card color="white" class="dialogCard">
-                <br>
-                <font size=4>
-                    <font size=5>
-                    <v-flex offset-xs5>
-                    <b><p>詳細資料</p></b>
-                    </v-flex>
-                    </font>
-                    <v-layout row>
-                        <v-layout column>
-                                <v-flex xs2 offset-xs1>
-                                  <p>商品名稱:{{props.item.prodName}}</p>
-                                   <p>商品數量:{{props.item.number}}</p>
-                                <v-flex v-if="props.item.spec.length !=0">
-                                    <p>商品規格:</p>
-                                      <v-flex  v-bind:key=n v-for="n in props.item.spec.length">
-                                           <p>{{n}}.&nbsp;{{props.item.spec[n-1]}}:&nbsp;&nbsp;{{props.item.specOption[n-1]}}</p>
-                                      </v-flex>
-                                   </v-flex>
-                                </v-flex>
-                                </v-layout>
-                                <v-flex xs8|md5>
-                                    <p>流程:</p>
-                                    <center>
-                                <v-stepper v-model="props.item.step" vertical alt-labels >
-                                        <v-stepper-step color="blue lighten-2" step="1" >配件/材料
-                                            <small v-if="props.item.step == 1">完成度:{{props.item.stepPer}}%</small>
-                                        </v-stepper-step>
-                                        <v-stepper-step color="blue lighten-2" step="2" >加工
-                                            <small v-if="props.item.step == 2">完成度:{{props.item.stepPer}}%</small>
-                                        </v-stepper-step>
-                                        <v-stepper-step  :rules="[() => false]"  step="3" color = "red" >品管
-                                            <small v-if="props.item.step == 3">完成度:{{props.item.stepPer}}%</small>
-                                        </v-stepper-step>
-                                        <v-stepper-step color="blue lighten-2" step="4" >包裝
-                                            <small v-if="props.item.step == 4">完成度:{{props.item.stepPer}}%</small>
-                                        </v-stepper-step>
-                                        <v-stepper-step color="blue lighten-2" step="5" >已出貨
-                                            <small v-if="props.item.step == 5">完成度:{{props.item.stepPer}}%</small>
-                                        </v-stepper-step>
-                                </v-stepper>
-                                    </center>
-                                </v-flex>
-                                <v-flex offset-(xs1|md1)>
-                                </v-flex>
-                    </v-layout>
-                </font>
-             <br>   
-            </v-card>
-            </v-dialog></td>
+      <td ><v-btn @click="orderDetail(props.item.id)">詳細</v-btn></td>
     </template>
   </v-data-table>
+  <v-card v-if="orderID!=''">
+      <font size=4>
+        <font size=5>
+            <v-flex offset-xs5>
+                <b><p>詳細資料</p></b>
+            </v-flex>
+        </font>
+            <v-layout column>
+                <v-flex xs2 offset-xs1>
+                    <p>商品名稱:{{order.prodName}}</p>
+                    <p>商品數量:{{order.number}}</p>
+                    <v-flex v-if="order.spec.length !=0">
+                        <p>商品規格:</p>
+                        <v-flex  v-bind:key=n v-for="n in order.spec.length">
+                            <p>{{n}}.&nbsp;{{order.spec[n-1]}}:&nbsp;&nbsp;{{order.specOption[n-1]}}</p>
+                        </v-flex>
+                    </v-flex>
+                </v-flex>
+            </v-layout>
+            <v-flex>
+                <v-flex offset-xs1>
+                    <p>流程:</p>
+                </v-flex> 
+                <v-stepper v-model="order.step">
+                    <v-stepper-step color="blue lighten-2" step="1" >配件/材料
+                        <small v-if="order.step == 1">完成度:{{order.stepPer}}%</small>
+                    </v-stepper-step>
+                    <v-stepper-step color="blue lighten-2" step="2" >加工
+                        <small v-if="order.step == 2">完成度:{{order.stepPer}}%</small>
+                    </v-stepper-step>
+                    <v-stepper-step  :rules="[() => false]"  step="3" color = "red">品管
+                        <small v-if="order.step == 3">完成度:{{order.stepPer}}%</small>
+                    </v-stepper-step>
+                    <v-stepper-step color="blue lighten-2" step="4" >包裝
+                        <small v-if="order.step == 4">完成度:{{order.stepPer}}%</small>
+                    </v-stepper-step>
+                    <v-stepper-step color="blue lighten-2" step="5" >已出貨
+                        <small v-if="order.step == 5">完成度:{{order.stepPer}}%</small>
+                    </v-stepper-step>
+                </v-stepper>
+            </v-flex>
+                               
+                
+                </font>
+  </v-card>
         </v-card>
         <v-card v-else-if="path=='memberAsk'" flat>
             <v-data-table
@@ -144,59 +138,36 @@
     class="elevation-1"
   >
     <template slot="items" slot-scope="props">
-      <td class="text-xs-center">{{ props.item.date }}</td>
-      <td ><v-dialog width="800"  color="#FFFFFF" class="dialogTop">
-            <v-btn  slot="activator">詳細</v-btn>
-            <v-card color="white" class="dialogTop">
-                <br>
-                    <font size=4>
-                        <font size=5>
-                        <v-flex offset-xs5>
-                        <b><p>詳細資料</p></b>
-                        </v-flex>
-                        </font>
-                        <v-flex xs10 offset-xs1>
-                    <v-data-table
-            color= "white"
-            :headers="askDetailHeaders"
-            :items="props.item.detail"
-            class="elevation-1"
-            hide-actions
-            light
-            >
-    <template slot="headerCell" slot-scope="props">
-      <v-tooltip bottom>
-        <span slot="activator">
-          {{ props.header.text }}
-        </span>
-        <span>
-          {{ props.header.text }}
-        </span>
-      </v-tooltip>
-    </template>
-    <template slot="items" slot-scope="props">
-      <td class="text-xs-center"> {{props.item.name}} </td>
-      <td class="text-xs-center"><v-card-media v-bind:src="props.item.picture"></v-card-media></td>
-      <td class="text-xs-center"><v-flex v-bind:key=n v-for="n in props.item.spec.length"><p v-if="props.item.spec[n-1]!== null">{{props.item.spec[n-1]}}:{{props.item.specOption[n-1]}}</p></v-flex></td>
-      <td class="text-xs-center">{{props.item.amount}}</td>
-    </template>
-        </v-data-table>
-                        </v-flex>
-                     <v-flex xs6 offset-xs1>
-                         <br>
-                    <p>聯絡資訊:</p>  
-                    <p>姓名:&nbsp;{{props.item.name}}</p>
-                    <p>連絡電話:&nbsp;{{props.item.phone}}</p>
-                    <p>E-mail:&nbsp;{{props.item.email}}</p>
-                    <p>備註留言:</p>
-                    <p>{{props.item.message}}</p>
-                </v-flex>
-                </font>
-             <br>   
-            </v-card>
-            </v-dialog></td>
+        <td class="text-xs-center">{{ props.item.date }}</td>
+        <td ><v-btn @click="askDetail(props.item.id)">詳細</v-btn></td>
     </template>
   </v-data-table>
+  <v-card v-if="askID!==''"><br>
+  <center><font size="5"><b>詢價詳細</b></font></center><br>
+  <v-divider></v-divider>
+  <br>
+    <v-flex v-bind:key=n v-for="n in askdetail.length">
+        <font size="4">
+            <v-layout row>
+                <v-layout column>
+                    <v-flex offset-xs1>
+                    <p>{{n}}.&nbsp;商品名稱:{{askdetail[n-1].name}}</p>
+                    <p>數量:{{askdetail[n-1].amount}}</p>
+                    <p>規格:</p>
+                    <p v-bind:key=i v-for="i in askdetail[n-1].spec.length">{{i}}.{{askdetail[n-1].spec[i-1]}}:{{askdetail[n-1].specOption[i-1]}}</p>
+                    </v-flex>
+                </v-layout>
+                <center>
+                <p>產品圖片</p>
+                <v-img  contain v-bind:src="askdetail[n-1].picture" width="120px" max-height="120px"></v-img>
+                <br>
+                </center>
+            </v-layout>
+        </font>
+        <v-divider v-if="n!=askdetail.length"></v-divider>
+        <br>
+    </v-flex>
+  </v-card>
         </v-card>
     </v-container>
 </template>
@@ -210,6 +181,9 @@ export default {
             account:null,
             asks:[],
             orders:[],
+            order:{
+            },
+            askdetail:[],
             search:[],
             askHeaders:[
                 { text: '日期',align: 'center', value: 'date' ,sortable: false,},
@@ -237,6 +211,8 @@ export default {
             line:'',
             birthday:'',
             qq:'',
+            orderID:'',
+            askID:'',
         }
     },
     methods:{
@@ -280,6 +256,24 @@ export default {
                     }).catch(error=>{
                     })
                 }
+        },
+        orderDetail(id){
+            for(var i in this.orders){
+                if(id == this.orders[i].id){
+                    this.order = this.orders[i]
+                    this.orderID = id
+                    break;
+                }
+            }
+        },
+        askDetail(id){
+            for(var i in this.asks){
+                if(id == this.asks[i].id){
+                    this.askdetail = this.asks[i].detail
+                    this.askID = id
+                    break;
+                }
+            }
         }
     },
     beforeMount(){
@@ -310,6 +304,12 @@ export default {
           let S = res.data.orders[i].specOption      
           s = s.split(',')
           S = S.split(',')
+          if(s.length==1 && s[0]==''){
+              s = []
+          }
+          if(S.length==1 && S[0] == ''){
+              S = []
+          }
           t.spec = s
           t.specOption = S
           let d = res.data.orders[i].state;
@@ -365,4 +365,6 @@ export default {
     top: 50%;
     transform: translateY(-50%);
 }
+
+
 </style>
