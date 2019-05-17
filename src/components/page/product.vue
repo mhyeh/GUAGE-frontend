@@ -209,6 +209,44 @@
             </center>
             <br>
         </v-card>
+        <v-card v-else-if="path=='temperature_transmitter'">
+            <br>
+            <center>
+                <v-layout row wrap>
+                    <v-flex v-bind:key=n v-for="n in 50">
+                            <v-flex v-if="(((page-1)*50)+n-1)<temperature_transmitter.length">
+                                <v-card flat max-width="120px" class="cardSize">
+                                    <v-layout column>
+                                        <v-img class="pointer" contain  width="120px" max-height="120px" @click="changeRoute(temperature_transmitter[((page-1)*50)+n-1].id)" v-bind:src=temperature_transmitter[((page-1)*50)+n-1].picture></v-img>
+                                        <v-card-text>{{temperature_transmitter[((page-1)*50)+n-1].name}}</v-card-text>
+                                    </v-layout>
+                                </v-card>
+                            </v-flex>               
+                    </v-flex>
+                </v-layout> 
+               <v-pagination v-model="page" :length="pages" dark></v-pagination>
+            </center>
+            <br>
+        </v-card>
+        <v-card v-else-if="path=='mechanical_switch'">
+            <br>
+            <center>
+                <v-layout row wrap>
+                    <v-flex v-bind:key=n v-for="n in 50">
+                            <v-flex v-if="(((page-1)*50)+n-1)<mechanical_switch.length">
+                                <v-card flat max-width="120px" class="cardSize">
+                                    <v-layout column>
+                                        <v-img class="pointer" contain  width="120px" max-height="120px" @click="changeRoute(mechanical_switch[((page-1)*50)+n-1].id)" v-bind:src=mechanical_switch[((page-1)*50)+n-1].picture></v-img>
+                                        <v-card-text>{{mechanical_switch[((page-1)*50)+n-1].name}}</v-card-text>
+                                    </v-layout>
+                                </v-card>
+                            </v-flex>               
+                    </v-flex>
+                </v-layout> 
+               <v-pagination v-model="page" :length="pages" dark></v-pagination>
+            </center>
+            <br>
+        </v-card>
         <v-card v-else-if="path=='septum'">
             <br>
             <center>
@@ -441,6 +479,8 @@ export default {
             TC_dipole:[],
             RTD_resistance:[],
             glass_thermometer:[],
+            temperature_transmitter:[],
+            mechanical_switch:[],
             septum:[],
             vertify:[],
             accessory:[],
@@ -765,6 +805,34 @@ export default {
         }).catch(error=>{
         })
 
+        api.getProductByType(21).then(res=>{
+            self.temperature_transmitter = res.data.products.reverse()
+            if(self.path == 'temperature_transmitter'){
+                self.pages = self.temperature_transmitter.length / 50
+                for(var i=0;i<self.pages+1;i++){
+                    if(self.pages>i && self.pages<=i+1){
+                        self.pages = i+1
+                        break
+                    }
+                }
+            }
+        }).catch(error=>{
+        })
+
+        api.getProductByType(22).then(res=>{
+            self. mechanical_switch = res.data.products.reverse()
+            if(self.path == ' mechanical_switch'){
+                self.pages = self. mechanical_switch.length / 50
+                for(var i=0;i<self.pages+1;i++){
+                    if(self.pages>i && self.pages<=i+1){
+                        self.pages = i+1
+                        break
+                    }
+                }
+            }
+        }).catch(error=>{
+        })
+
         
         api.getArticleByClass(3).then(res=>{
             self.download  = res.data.articles
@@ -787,6 +855,7 @@ export default {
         }).catch(error=>{
         })
 
+console.log(this.path)
         
     }
 }

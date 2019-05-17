@@ -26,7 +26,7 @@ export default {
                    {genre:"認證報告",url:"report"},
                    {genre:"關係網頁連結",url:"relation"}]
             }
-            if(path=='catalog' || path=='download'  || path=='newGoods' || path=='pointer_pressure' || path=='pressure_switch' || path=='pressure_transmitter' || path=='transmitter' || path=='digit_pressure' ||  path=='pointer_thermometer' ||  path=='temperature_switch' || path=='digit_thermometer' || path=='TC_dipole' || path=='RTD_resistance' || path=='glass_thermometer' || path=='septum' || path=='vertify' || path=='accessory' || path=='search')
+            if(path=='catalog' || path=='download'  || path=='newGoods' || path=='pointer_pressure' || path=='pressure_switch' || path=='pressure_transmitter' || path=='transmitter' || path=='digit_pressure' ||  path=='pointer_thermometer' ||  path=='temperature_switch' || path=='digit_thermometer' || path=='TC_dipole' || path=='RTD_resistance' || path=='glass_thermometer' || path=='septum' || path=='vertify' || path=='accessory' || path=='search' || path=='temperature_transmitter' || path == 'mechanical_switch')
             {
                 return[
                     {genre:"新品",url:"newGoods"},
@@ -41,6 +41,8 @@ export default {
                     {genre:"TC熱電偶",url:"TC_dipole"},
                     {genre:"RTD熱電阻",url:"RTD_resistance"},
                     {genre:"玻璃管溫度計",url:"glass_thermometer"},
+                    {genre:"溫度傳感(送)器",url:"temperature_transmitter"},
+                    {genre:"機械式壓力開關",url:"mechanical_switch"},
                     {genre:"隔膜",url:"septum"},
                     {genre:"校驗儀器",url:"vertify"},
                     {genre:"配件",url: "accessory"},

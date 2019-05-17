@@ -51,7 +51,7 @@
         <v-card class="cardMid" v-else-if="path=='member' || path=='order' || path=='memberAsk' || path=='update'">
             <member :path="path"></member>
         </v-card>
-        <v-card class="cardMid" v-else-if="path=='pointer_pressure'||path=='pressure_switch'||path=='pressure_transmitter'||path=='transmitter'||path=='digit_pressure'||path=='pointer_thermometer'||path=='temperature_switch'||path=='digit_thermometer'||path=='TC_dipole'||path=='RTD_resistance'||path=='glass_thermometer'||path=='septum'||path=='vertify'||path=='accessory'||path=='FRL'||path=='valve'||path=='liquid'||path=='flow'||path=='adjuster'||path=='load_transmitter'||path=='newGoods' || path=='download'">
+        <v-card class="cardMid" v-else-if="path=='pointer_pressure'||path=='pressure_switch'||path=='pressure_transmitter'||path=='transmitter'||path=='digit_pressure'||path=='pointer_thermometer'||path=='temperature_switch'||path=='digit_thermometer'||path=='TC_dipole'||path=='RTD_resistance'||path=='glass_thermometer'||path=='septum'||path=='vertify'||path=='accessory'||path=='FRL'||path=='valve'||path=='liquid'||path=='flow'||path=='adjuster'||path=='load_transmitter'||path=='newGoods' || path=='download' || path== 'temperature_transmitter' || path =='mechanical_switch'" >
             <product :path="path"></product>
         </v-card>
         <v-card class="cardMid" v-else-if="path=='login'">
