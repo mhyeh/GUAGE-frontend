@@ -20,7 +20,7 @@
                             <v-flex v-if="(((page-1)*50)+n-1)<products.length">
                                 <v-card flat max-width="120px" class="cardSize">
                                     <v-layout column>
-                                        <v-img class="pointer" contain  width="120px" max-height="120px" @click="changeRoute(products[((page-1)*50)+n-1].id)" v-bind:src=products[((page-1)*50)+n-1].picture></v-img>
+                                        <v-img class="pointer" contain  width="120px" max-height="120px" @click="changeRouteProduct(products[((page-1)*50)+n-1].id)" v-bind:src=products[((page-1)*50)+n-1].picture></v-img>
                                         <v-card-text>{{products[((page-1)*50)+n-1].name}}</v-card-text>
                                     </v-layout>
                                 </v-card>
@@ -58,10 +58,12 @@ export default {
                     {genre:"指針式壓力錶",url:"pointer_pressure"},
                     {genre:"類比輸出壓力開關",url:"pressure_switch"},
                     {genre:"壓力傳感(送)器",url:"pressure_transmitter"},
+                     {genre:"機械式壓力開關",url:"mechanical_switch"},
                     {genre:"智能型變送器",url:"transmitter"},
                     {genre:"數位式壓力錶",url:"digit_pressure"},
                     {genre:"指針式溫度表",url:"pointer_thermometer"},
                     {genre:"機械式溫度開關",url:"temperature_switch"},
+                    {genre:"溫度傳感(送)器",url:"temperature_transmitter"},
                     {genre:"數位溫度表",url:"digit_thermometer"},
                     {genre:"TC熱電偶",url:"TC_dipole"},
                     {genre:"RTD熱電阻",url:"RTD_resistance"},
@@ -69,7 +71,7 @@ export default {
                     {genre:"隔膜",url:"septum"},
                     {genre:"校驗儀器",url:"vertify"},
                     {genre:"配件",url: "accessory"},
-                    {genre:"型錄下載",url:"download"}],
+                    {genre:"型錄總覽下載",url:"download"}],
         }
     },
     watch:{
@@ -100,6 +102,7 @@ export default {
             document.documentElement.scrollTop = 0
          },
          changeRouteProduct(id){
+             console.log(id)
            this.$router.push('/product_view/'+ id)
             document.body.scrollTop = 0
             document.documentElement.scrollTop = 0
