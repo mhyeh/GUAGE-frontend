@@ -66,5 +66,11 @@ export default {
   subscribe: function (data) {
     console.log(data)
     return client.post('/newsletter', data)
+  },
+  getCounter: function () {
+    return client.get('/article/14')
+  },
+  setCounter: function () {
+    return client.put('/article/counter')
   }
 }

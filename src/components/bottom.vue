@@ -12,6 +12,13 @@
               </v-layout>
             </v-toolbar-items>
           </v-toolbar>
+          <v-layout row align-center="">
+          <v-divider></v-divider>
+            <v-card flat color="grey lighten-4">
+              &nbsp;&nbsp;第&nbsp;{{counter}}&nbsp;位訪問者&nbsp;&nbsp;
+            </v-card>
+          <v-divider></v-divider>
+          </v-layout>
           <v-flex><br>地址: 台北市北投區致遠一路二段109號 電話: 886-2-28235699  傳真: 886-2-28270646<br>亞帝國際有限公司版權所有<br>Copyright © 2018 Gauge Inc. All rights reserved</v-flex>
               </center>
       </v-layout>
@@ -20,6 +27,7 @@
 </template>
 
 <script>
+import api from '../store/api.js'
 export default {
  data () {
     return {
@@ -34,7 +42,8 @@ export default {
         {genre:"相關連結",url:"relation"},
         {genre:"衍生品牌",url:"brands"},
         {genre:"聯絡我們",url:"information"}
-      ]
+      ],
+      counter:null
     }
   },
    methods: {
@@ -43,6 +52,20 @@ export default {
       document.body.scrollTop = 0
       document.documentElement.scrollTop = 0
     }
+  },
+  beforeMount(){
+    let self = this
+
+    if(localStorage.getItem('counter') == undefined){
+        api.setCounter().then(res=>{
+          localStorage.setItem('counter',Math.random())
+      })
+    }
+    
+
+    api.getCounter().then(res=>{
+      self.counter = res.data.article.context
+    })
   }
 }
 </script>
