@@ -24,7 +24,7 @@
                       <div v-if="item.sub_genre !== undefined">
                         <v-list>
                           <v-list-tile v-bind:key=sub.genre v-for="sub in item.sub_genre">
-                            <v-btn  block  ripple dark @click="changeroute2(sub.url)">
+                            <v-btn   block  ripple dark @click="changeroute2(sub.url)">
                               <v-list-tile-title><font size="4">{{sub.genre}}</font></v-list-tile-title>
                             </v-btn>
                           </v-list-tile>
