@@ -101,7 +101,6 @@ export default {
     api.getArticle(15).then(res=>{
       self.about = res.data.article.context;
       self.about = self.about.replace(/\n|\r\n/g,"<br/>")
-      console.log(self.about)
     }).catch(error=>{
     })
 

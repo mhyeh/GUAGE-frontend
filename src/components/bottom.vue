@@ -56,9 +56,9 @@ export default {
   beforeMount(){
     let self = this
 
-    if(localStorage.getItem('counter') == undefined){
-        api.setCounter().then(res=>{
-          localStorage.setItem('counter',Math.random())
+    if(sessionStorage.getItem('counter') == undefined){
+      api.setCounter().then(res=>{
+          sessionStorage.setItem('counter',Math.random())
       })
     }
     
