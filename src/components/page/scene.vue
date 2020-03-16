@@ -28,6 +28,7 @@
              <v-data-table
     :headers="headers"
     :items="film"
+    v-bind:pagination.sync="pagination"
     class="elevation-1"
   >
     <template slot="headerCell" slot-scope="props">
@@ -81,7 +82,7 @@ export default {
      data(){
          return {
              headers:[ {text: '日期',align: 'center',sortable: false,value: 'date'},{text: '標題',align: 'center',sortable: false,value: 'title'}],
-             pagination:{},
+             pagination:{'sortBy':'date','descending':true},
              pathchange:'',
              equipment:[],
              film:[],
