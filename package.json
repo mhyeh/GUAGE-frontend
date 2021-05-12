@@ -14,7 +14,7 @@
     "axios": "^0.18.0",
     "dns": "^0.2.2",
     "material-design-icons": "^3.0.1",
-    "nodemailer": "^4.6.7",
+    "nodemailer": "^6.4.16",
     "v-calendar": "^0.9.7",
     "vue": "^2.5.2",
     "vue-datatable": "^1.0.4",
